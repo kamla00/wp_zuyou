@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヒーロー比較 | デザイン検討</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-p100: rgb(216,229,230);
+      --c-p200: rgb(192,217,226);
+      --c-p300: rgb(170,218,238);
+      --c-p400: rgb(69,149,199);
+      --c-p500: rgb(60,105,156);
+      --c-p800: rgb(36,78,109);
+      --c-s500: rgb(244,244,240);
+      --c-s600: rgb(229,229,217);
+      --c-white: #fff;
+    }
+
+    body {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background: #f0f0ec;
+    }
+
+    /* ===== ナビ ===== */
+    .compare-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--c-p800);
+      display: flex;
+      gap: 4px;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+    .compare-nav a {
+      color: var(--c-p300);
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 5px 12px;
+      border: 1px solid var(--c-p500);
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .compare-nav a:hover { background: var(--c-p500); color: #fff; }
+
+    /* ===== セクションラベル ===== */
+    .variant-block { margin-bottom: 8px; }
+    .variant-label {
+      background: var(--c-p800);
+      color: var(--c-s500);
+      font-size: 0.8rem;
+      padding: 6px 20px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== 共通テキスト ===== */
+    .ph-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+    }
+    .ph-title {
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+
+    /* ========================================
+       案1: アニメーショングラデーション
+       ======================================== */
+    #v1 {
+      height: 360px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 52px;
+      padding-left: 60px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        125deg,
+        rgb(36,78,109) 0%,
+        rgb(60,105,156) 25%,
+        rgb(69,149,199) 50%,
+        rgb(170,218,238) 75%,
+        rgb(60,105,156) 100%
+      );
+      background-size: 300% 300%;
+      animation: gradShift 8s ease infinite;
+    }
+    @keyframes gradShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    #v1::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(69,149,199,0.3) 0%, transparent 70%);
+    }
+    #v1 .ph-label { color: var(--c-p300); margin-bottom: 10px; }
+    #v1 .ph-title { color: #fff; }
+    #v1 .inner { position: relative; z-index: 1; }
+
+    /* ========================================
+       案2: SVG 波形・メッシュ
+       ======================================== */
+    #v2 {
+      height: 360px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 52px;
+      padding-left: 60px;
+      position: relative;
+      overflow: hidden;
+      background: var(--c-p800);
+    }
+    #v2 svg.mesh {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #v2 .wave-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #v2 .ph-label { color: var(--c-p300); margin-bottom: 10px; }
+    #v2 .ph-title { color: #fff; }
+    #v2 .inner { position: relative; z-index: 1; }
+
+    /* ========================================
+       案3: 斜めカラーブロック (clip-path)
+       ======================================== */
+    #v3 {
+      height: 360px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 52px;
+      padding-left: 60px;
+      position: relative;
+      overflow: hidden;
+      background: var(--c-white);
+    }
+    #v3 .clip-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--c-p800);
+      clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
+    }
+    #v3 .clip-accent {
+      position: absolute;
+      inset: 0;
+      background: var(--c-p400);
+      clip-path: polygon(0 0, 55% 0, 40% 100%, 0 100%);
+      opacity: 0.6;
+    }
+    #v3 .clip-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    #v3 .clip-right-deco {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--c-p100);
+      opacity: 0.3;
+    }
+    #v3 .ph-label { color: var(--c-p300); margin-bottom: 10px; }
+    #v3 .ph-title { color: #fff; }
+    #v3 .inner { position: relative; z-index: 1; }
+
+    /* ========================================
+       案4: グラスモーフィズム
+       ======================================== */
+    #v4 {
+      height: 360px;
+      display: flex;
+      align-items: center;
+      padding-left: 60px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--c-p300) 0%, var(--c-p100) 50%, var(--c-s500) 100%);
+    }
+    #v4::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+      top: -150px;
+      right: -100px;
+    }
+    #v4::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60,105,156,0.3) 0%, transparent 70%);
+      bottom: -80px;
+      left: 200px;
+    }
+    .glass-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 16px;
+      padding: 36px 48px;
+      box-shadow: 0 8px 32px rgba(36,78,109,0.12);
+    }
+    #v4 .ph-label { color: var(--c-p500); margin-bottom: 10px; }
+    #v4 .ph-title { color: var(--c-p800); }
+
+    /* ========================================
+       案5: パーティクル (Canvas)
+       ======================================== */
+    #v5 {
+      height: 360px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 52px;
+      padding-left: 60px;
+      position: relative;
+      overflow: hidden;
+      background: var(--c-p800);
+    }
+    #v5 canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #v5 .ph-label { color: var(--c-p300); margin-bottom: 10px; }
+    #v5 .ph-title { color: #fff; }
+    #v5 .inner { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ナビ -->
+<nav class="compare-nav">
+  <a href="#v1">案1: アニメーショングラデーション</a>
+  <a href="#v2">案2: SVG 波形パターン</a>
+  <a href="#v3">案3: 斜めカラーブロック</a>
+  <a href="#v4">案4: グラスモーフィズム</a>
+  <a href="#v5">案5: パーティクル</a>
+</nav>
+
+<!-- ========================================
+     案1: アニメーショングラデーション
+     ======================================== -->
+<div class="variant-block" id="v1-anchor">
+  <div class="variant-label">案1｜アニメーショングラデーション — ゆっくり流れる青系グラデーション</div>
+  <div id="v1">
+    <div class="inner">
+      <p class="ph-label">Screening</p>
+      <h1 class="ph-title">健診事業</h1>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     案2: SVG 波形パターン
+     ======================================== -->
+<div class="variant-block" id="v2-anchor">
+  <div class="variant-label">案2｜SVG 波形パターン — 流れる波と光の有機的表現</div>
+  <div id="v2">
+    <!-- 波形SVG アニメーション -->
+    <svg class="wave-lines" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .wv { fill: none; stroke-width: 1; opacity: 0.18; }
+          .wv1 { stroke: rgb(170,218,238); animation: wv-move1 6s ease-in-out infinite; }
+          .wv2 { stroke: rgb(69,149,199); animation: wv-move2 8s ease-in-out infinite; }
+          .wv3 { stroke: rgb(216,229,230); animation: wv-move3 10s ease-in-out infinite; }
+          @keyframes wv-move1 {
+            0%,100% { d: path("M-100,180 C200,80 400,280 700,180 C1000,80 1200,280 1540,180"); }
+            50%      { d: path("M-100,220 C200,120 400,320 700,220 C1000,120 1200,320 1540,220"); }
+          }
+          @keyframes wv-move2 {
+            0%,100% { d: path("M-100,230 C150,130 350,330 650,230 C950,130 1150,330 1540,230"); }
+            50%      { d: path("M-100,170 C150,70  350,270 650,170 C950,70  1150,270 1540,170"); }
+          }
+          @keyframes wv-move3 {
+            0%,100% { d: path("M-100,140 C250,40  500,240 800,140 C1100,40  1300,240 1540,140"); }
+            50%      { d: path("M-100,260 C250,160 500,360 800,260 C1100,160 1300,360 1540,260"); }
+          }
+        </style>
+      </defs>
+      <!-- 背景の円形ハイライト -->
+      <circle cx="900" cy="120" r="200" fill="rgba(69,149,199,0.07)"/>
+      <circle cx="300" cy="300" r="150" fill="rgba(170,218,238,0.06)"/>
+      <!-- 波形ライン -->
+      <path class="wv wv1" d="M-100,180 C200,80 400,280 700,180 C1000,80 1200,280 1540,180"/>
+      <path class="wv wv1" style="opacity:0.1" d="M-100,200 C200,100 400,300 700,200 C1000,100 1200,300 1540,200"/>
+      <path class="wv wv2" d="M-100,230 C150,130 350,330 650,230 C950,130 1150,330 1540,230"/>
+      <path class="wv wv2" style="opacity:0.1" d="M-100,250 C150,150 350,350 650,250 C950,150 1150,350 1540,250"/>
+      <path class="wv wv3" d="M-100,140 C250,40 500,240 800,140 C1100,40 1300,240 1540,140"/>
+      <!-- 右側の光彩 -->
+      <ellipse cx="1200" cy="100" rx="300" ry="180" fill="rgba(170,218,238,0.08)"/>
+    </svg>
+    <div class="inner">
+      <p class="ph-label">Screening</p>
+      <h1 class="ph-title">健診事業</h1>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     案3: 斜めカラーブロック
+     ======================================== -->
+<div class="variant-block" id="v3-anchor">
+  <div class="variant-label">案3｜斜めカラーブロック — clip-path で斜めに切り取った2色構成</div>
+  <div id="v3">
+    <div class="clip-bg"></div>
+    <div class="clip-accent"></div>
+    <div class="clip-right">
+      <div class="clip-right-deco"></div>
+    </div>
+    <div class="inner">
+      <p class="ph-label">Screening</p>
+      <h1 class="ph-title">健診事業</h1>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     案4: グラスモーフィズム
+     ======================================== -->
+<div class="variant-block" id="v4-anchor">
+  <div class="variant-label">案4｜グラスモーフィズム — すりガラスパネルにテキストを配置</div>
+  <div id="v4">
+    <div class="glass-card">
+      <p class="ph-label">Screening</p>
+      <h1 class="ph-title">健診事業</h1>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     案5: パーティクル
+     ======================================== -->
+<div class="variant-block" id="v5-anchor">
+  <div class="variant-label">案5｜パーティクル — 漂うドットと連結線（Canvas）</div>
+  <div id="v5">
+    <canvas id="particle-canvas"></canvas>
+    <div class="inner">
+      <p class="ph-label">Screening</p>
+      <h1 class="ph-title">健診事業</h1>
+    </div>
+  </div>
+</div>
+
+<div style="height:60px; background:#f0f0ec; display:flex; align-items:center; justify-content:center;">
+  <a href="screening.html" style="color:rgb(36,78,109); font-family:sans-serif; font-size:0.85rem;">← screening.html に戻る</a>
+</div>
+
+<script>
+/* ===== パーティクル (案5) ===== */
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const container = document.getElementById('v5');
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const COUNT = 60;
+  const COLOR_DOT  = 'rgba(170,218,238,';
+  const COLOR_LINE = 'rgba(69,149,199,';
+  const CONNECT_DIST = 120;
+
+  const dots = Array.from({ length: COUNT }, () => ({
+    x:  Math.random() * canvas.width,
+    y:  Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    r:  Math.random() * 2 + 1,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < dots.length; i++) {
+      const a = dots[i];
+      a.x += a.vx;
+      a.y += a.vy;
+      if (a.x < 0 || a.x > canvas.width)  a.vx *= -1;
+      if (a.y < 0 || a.y > canvas.height) a.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fillStyle = COLOR_DOT + '0.8)';
+      ctx.fill();
+
+      for (let j = i + 1; j < dots.length; j++) {
+        const b = dots[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONNECT_DIST) {
+          const alpha = (1 - dist / CONNECT_DIST) * 0.4;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = COLOR_LINE + alpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

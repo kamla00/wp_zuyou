@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健診アイテム デザイン比較</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-100: rgb(216,229,230);
+      --primary-200: rgb(192,217,226);
+      --primary-300: rgb(170,218,238);
+      --primary-400: rgb(69,149,199);
+      --primary-500: rgb(60,105,156);
+      --primary-800: rgb(36,78,109);
+      --secondary-500: rgb(244,244,240);
+      --secondary-600: rgb(229,229,217);
+      --gray-800: rgb(77,77,77);
+      --en: "Outfit", sans-serif;
+      --base: "Zen Kaku Gothic New", "ヒラギノ角ゴ ProN W3", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 62.5%; }
+    body { font-family: var(--base); color: var(--gray-800); background: #f0f2f5; }
+
+    .compare-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary-800);
+      padding: 0 20px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .compare-nav::-webkit-scrollbar { display: none; }
+    .compare-nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 14px 16px;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .compare-nav a:hover {
+      color: #fff;
+      border-bottom-color: var(--primary-300);
+    }
+
+    .compare-block {
+      padding: 60px 24px 80px;
+    }
+    .compare-block + .compare-block {
+      border-top: 4px dashed #d0d4da;
+    }
+    .compare-block--white { background: #fff; }
+    .compare-block--beige { background: var(--secondary-500); }
+    .compare-block--blue  { background: var(--primary-100); }
+
+    .compare-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-800);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 100vmax;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+    }
+    .compare-label-current {
+      background: var(--primary-400);
+    }
+    .compare-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-800);
+      margin-bottom: 6px;
+    }
+    .compare-desc {
+      font-size: 1.4rem;
+      color: #888;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* =====================================================
+       現行デザイン
+       ===================================================== */
+    .sl-current {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .sl-current { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .sl-current { grid-template-columns: 1fr; } }
+
+    .sc {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 26px 26px;
+      box-shadow: 0 2px 16px rgba(60,105,156,0.08);
+      border-top: 3px solid var(--primary-300);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .sc:hover { box-shadow: 0 8px 28px rgba(60,105,156,0.14); transform: translateY(-3px); }
+    .sc__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .sc__icon {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-500);
+    }
+    .sc__icon svg { width: 22px; height: 22px; }
+    .sc__title { font-size: 1.6rem; font-weight: 700; color: var(--primary-800); line-height: 1.4; }
+    .sc__text { font-size: 1.4rem; line-height: 1.85; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンA : 左アクセントライン + 横並びリスト
+       ===================================================== */
+    .sl-a {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sa {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--primary-100);
+      position: relative;
+    }
+    .sa:first-child { border-top: 1px solid var(--primary-100); }
+    .sa__icon {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      background: var(--primary-500);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      margin-top: 2px;
+    }
+    .sa__icon svg { width: 24px; height: 24px; }
+    .sa__body { flex: 1; }
+    .sa__title {
+      font-size: 1.7rem; font-weight: 700;
+      color: var(--primary-800);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .sa__text { font-size: 1.4rem; line-height: 1.85; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンB : 番号付き + 細い左ボーダーアクセント
+       ===================================================== */
+    .sl-b {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) { .sl-b { grid-template-columns: 1fr; } }
+
+    .sb {
+      display: flex;
+      gap: 20px;
+      padding: 28px 24px;
+      background: #fff;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary-300);
+      box-shadow: 0 1px 8px rgba(60,105,156,0.06);
+      transition: border-left-color 0.2s, box-shadow 0.2s;
+    }
+    .sb:hover { border-left-color: var(--primary-500); box-shadow: 0 4px 20px rgba(60,105,156,0.13); }
+    .sb__num {
+      font-family: var(--en);
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--primary-200);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 40px;
+      margin-top: -4px;
+    }
+    .sb__body { flex: 1; }
+    .sb__title { font-size: 1.6rem; font-weight: 700; color: var(--primary-800); margin-bottom: 10px; }
+    .sb__text { font-size: 1.4rem; line-height: 1.8; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンC : アイコン中央・シンプルミニマル
+       ===================================================== */
+    .sl-c {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1100px) { .sl-c { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .sl-c { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .sl-c { grid-template-columns: 1fr; } }
+
+    .sc2 {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 20px 28px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(60,105,156,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .sc2:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(60,105,156,0.14); }
+    .sc2__icon {
+      width: 64px; height: 64px;
+      background: var(--primary-100);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-500);
+      margin: 0 auto 18px;
+    }
+    .sc2__icon svg { width: 30px; height: 30px; }
+    .sc2__title {
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--primary-800);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .sc2__text { font-size: 1.3rem; line-height: 1.75; color: #666; margin: 0; }
+
+    /* =====================================================
+       パターンD : 横幅広 + 画像風カラーブロック
+       ===================================================== */
+    .sl-d {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 900px) { .sl-d { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .sl-d { grid-template-columns: 1fr; } }
+
+    .sd {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(60,105,156,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .sd:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(60,105,156,0.16); }
+    .sd__header {
+      background: linear-gradient(135deg, var(--primary-500), var(--primary-400));
+      padding: 24px 26px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .sd:nth-child(2n) .sd__header { background: linear-gradient(135deg, var(--primary-400), var(--primary-300)); }
+    .sd:nth-child(3n) .sd__header { background: linear-gradient(135deg, var(--primary-800), var(--primary-500)); }
+    .sd__icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .sd__icon svg { width: 24px; height: 24px; }
+    .sd__title { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.3; }
+    .sd__body { padding: 22px 26px; }
+    .sd__text { font-size: 1.4rem; line-height: 1.85; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンE : タグ＋テーブルライク横並び
+       ===================================================== */
+    .sl-e {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .se {
+      background: #fff;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(60,105,156,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .se:hover { box-shadow: 0 4px 20px rgba(60,105,156,0.13); }
+    .se__left {
+      background: linear-gradient(180deg, var(--primary-100), var(--primary-200));
+      width: 80px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 12px;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .se__icon { color: var(--primary-500); }
+    .se__icon svg { width: 26px; height: 26px; display: block; }
+    .se__right { padding: 22px 28px; }
+    .se__title { font-size: 1.6rem; font-weight: 700; color: var(--primary-800); margin-bottom: 8px; }
+    .se__text { font-size: 1.4rem; line-height: 1.8; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンA2 : 2カラムリスト（丸アイコン＋タイトル下アクセント）
+       ===================================================== */
+    .sl-a2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 60px;
+    }
+    @media (max-width: 700px) { .sl-a2 { grid-template-columns: 1fr; } }
+    .sa2 {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--primary-100);
+    }
+    .sa2:nth-child(-n+2) { border-top: 1px solid var(--primary-100); }
+    @media (max-width: 700px) {
+      .sa2:nth-child(2) { border-top: none; }
+    }
+    .sa2__icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--primary-500);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+    }
+    .sa2__icon svg { width: 22px; height: 22px; }
+    .sa2__body { flex: 1; }
+    .sa2__title {
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--primary-800);
+      margin-bottom: 4px;
+      padding-bottom: 8px;
+      position: relative;
+    }
+    .sa2__title::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 32px; height: 2px;
+      background: var(--primary-300);
+      border-radius: 1px;
+    }
+    .sa2__text { font-size: 1.4rem; line-height: 1.8; color: var(--gray-800); margin: 10px 0 0; }
+
+    /* =====================================================
+       A2 アイコン代替案 ① 連番
+       ===================================================== */
+    .sa2__num {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--primary-500);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-family: var(--en);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* A2 アイコン代替案 ③ カラードット */
+    .sa2__dot {
+      flex-shrink: 0;
+      width: 14px; height: 14px;
+      background: var(--primary-400);
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+
+    /* A2 アイコン代替案 ④ 頭文字（漢字一文字） */
+    .sa2__char {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--primary-100);
+      border: 2px solid var(--primary-300);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-800);
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       パターンA3 : ストライプ背景（交互）
+       ===================================================== */
+    .sl-a3 { display: flex; flex-direction: column; }
+    .sa3 {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 28px;
+    }
+    .sa3:nth-child(even) { background: var(--primary-100); }
+    .sa3:nth-child(odd)  { background: #fff; }
+    .sa3:first-child { border-radius: 12px 12px 0 0; }
+    .sa3:last-child  { border-radius: 0 0 12px 12px; }
+    .sa3__icon {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      background: #fff;
+      border: 2px solid var(--primary-300);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-500);
+    }
+    .sa3:nth-child(even) .sa3__icon { background: var(--primary-500); border-color: var(--primary-500); color: #fff; }
+    .sa3__icon svg { width: 22px; height: 22px; }
+    .sa3__body { flex: 1; }
+    .sa3__title { font-size: 1.6rem; font-weight: 700; color: var(--primary-800); margin-bottom: 8px; }
+    .sa3__text { font-size: 1.4rem; line-height: 1.8; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンA4 : 左カラーナンバー（アイコンなし）
+       ===================================================== */
+    .sl-a4 { display: flex; flex-direction: column; gap: 0; }
+    .sa4 {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      border-bottom: 1px solid var(--primary-100);
+    }
+    .sa4:first-child { border-top: 1px solid var(--primary-100); }
+    .sa4__num {
+      flex-shrink: 0;
+      width: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--en);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--primary-500);
+      padding: 22px 10px;
+      letter-spacing: 0;
+    }
+    .sa4:nth-child(even) .sa4__num { background: var(--primary-400); }
+    .sa4__body {
+      flex: 1;
+      padding: 22px 28px;
+    }
+    .sa4__title { font-size: 1.6rem; font-weight: 700; color: var(--primary-800); margin-bottom: 8px; }
+    .sa4__text { font-size: 1.4rem; line-height: 1.8; color: var(--gray-800); margin: 0; }
+
+    /* =====================================================
+       パターンA5 : タグ付きリスト（インラインアクセント）
+       ===================================================== */
+    .sl-a5 { display: flex; flex-direction: column; gap: 16px; }
+    .sa5 {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--primary-100);
+    }
+    .sa5:first-child { border-top: 1px solid var(--primary-100); }
+    .sa5__icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-500);
+    }
+    .sa5__icon svg { width: 22px; height: 22px; }
+    .sa5__body { flex: 1; }
+    .sa5__head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .sa5__title { font-size: 1.7rem; font-weight: 700; color: var(--primary-800); line-height: 1.3; }
+    .sa5__tag {
+      font-family: var(--en);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-400);
+      background: var(--primary-100);
+      padding: 2px 10px;
+      border-radius: 100vmax;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .sa5__text { font-size: 1.4rem; line-height: 1.85; color: var(--gray-800); margin: 0; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ナビ -->
+  <nav class="compare-nav">
+    <a href="#current">現行</a>
+    <a href="#patternA">A: 横リスト（基本）</a>
+    <a href="#patternA2">A2: 2カラムリスト</a>
+    <a href="#patternA2-num">A2-① 連番</a>
+    <a href="#patternA2-unified">A2-② 統一アイコン</a>
+    <a href="#patternA2-dot">A2-③ ドット</a>
+    <a href="#patternA2-initial">A2-④ 頭文字</a>
+    <a href="#patternA3">A3: ストライプ行</a>
+    <a href="#patternA4">A4: 番号カラム</a>
+    <a href="#patternA5">A5: タグ付き</a>
+    <a href="#patternB">B: 番号+左ボーダー</a>
+    <a href="#patternC">C: アイコン中央</a>
+    <a href="#patternD">D: カラーヘッダー</a>
+    <a href="#patternE">E: テーブルロウ</a>
+  </nav>
+
+  <!-- =====================================================
+       現行デザイン
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="current">
+    <div class="container">
+      <span class="compare-label compare-label-current">現行デザイン</span>
+      <h2 class="compare-title">カード型（上ボーダー＋アイコン）</h2>
+      <p class="compare-desc">現在の健診ページで使用しているデザイン。3カラムグリッド、角丸カード、上部アクセントライン。</p>
+      <div class="sl-current">
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <h3 class="sc__title">特定健康診査（メタボ健診）</h3>
+          </div>
+          <p class="sc__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+        </div>
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+            <h3 class="sc__title">胃がん検診</h3>
+          </div>
+          <p class="sc__text">胃部集団検診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団検診を行っています。更に内視鏡も行っています。</p>
+        </div>
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            <h3 class="sc__title">肺がん・結核検診</h3>
+          </div>
+          <p class="sc__text">デジタル撮影装置を装備した集団検診車で、結核及び肺がんの検診を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+        </div>
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            <h3 class="sc__title">乳がん検診</h3>
+          </div>
+          <p class="sc__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+        </div>
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+            <h3 class="sc__title">大腸がん検診</h3>
+          </div>
+          <p class="sc__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+        </div>
+        <div class="sc">
+          <div class="sc__head">
+            <span class="sc__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+            <h3 class="sc__title">骨粗しょう症検診</h3>
+          </div>
+          <p class="sc__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA
+       ===================================================== -->
+  <section class="compare-block compare-block--beige" id="patternA">
+    <div class="container">
+      <span class="compare-label">パターン A</span>
+      <h2 class="compare-title">横リスト型（丸アイコン＋区切り線）</h2>
+      <p class="compare-desc">カード枠を排除し、横方向に伸びるリスト形式。情報量が多い場合でも読みやすく、シンプルで落ち着いた印象。</p>
+      <div class="sl-a">
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">胃がん検診</h3>
+            <p class="sa__text">胃部集団検診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団検診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">肺がん・結核健診</h3>
+            <p class="sa__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">乳がん健診</h3>
+            <p class="sa__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">大腸がん健診</h3>
+            <p class="sa__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa">
+          <span class="sa__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+          <div class="sa__body">
+            <h3 class="sa__title">骨粗しょう症健診</h3>
+            <p class="sa__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA2
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternA2">
+    <div class="container">
+      <span class="compare-label">パターン A2</span>
+      <h2 class="compare-title">2カラムリスト（丸アイコン＋タイトル下アクセントライン）</h2>
+      <p class="compare-desc">Aの2カラム版。タイトル下に短いアクセントラインを加えてメリハリをつけた構成。項目数が多い場合に縦を詰められる。</p>
+      <div class="sl-a2">
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa2__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">胃がん健診</h3>
+            <p class="sa2__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">肺がん・結核健診</h3>
+            <p class="sa2__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">乳がん健診</h3>
+            <p class="sa2__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">大腸がん健診</h3>
+            <p class="sa2__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">骨粗しょう症健診</h3>
+            <p class="sa2__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA2-① アイコン代替案：連番
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternA2-num">
+    <div class="container">
+      <span class="compare-label">A2-① アイコン代替案</span>
+      <h2 class="compare-title">連番（01・02・…）</h2>
+      <p class="compare-desc">アイコンの代わりに連番の番号を丸の中に表示するパターン。個別アイコンの選定が不要で、整然とした印象を保ちつつA2のレイアウトをそのまま活かせる。</p>
+      <div class="sl-a2">
+        <div class="sa2">
+          <span class="sa2__num">01</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa2__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__num">02</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">胃がん健診</h3>
+            <p class="sa2__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__num">03</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">肺がん・結核健診</h3>
+            <p class="sa2__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__num">04</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">乳がん健診</h3>
+            <p class="sa2__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__num">05</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">大腸がん健診</h3>
+            <p class="sa2__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__num">06</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">骨粗しょう症健診</h3>
+            <p class="sa2__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA2-② アイコン代替案：統一アイコン
+       ===================================================== -->
+  <section class="compare-block compare-block--beige" id="patternA2-unified">
+    <div class="container">
+      <span class="compare-label">A2-② アイコン代替案</span>
+      <h2 class="compare-title">統一アイコン（全項目同じ記号）</h2>
+      <p class="compare-desc">すべての項目に同じアイコンを使用するパターン。個別の選定不要で、統一感と清潔感が生まれる。「医療十字」「チェックマーク」など意味の通るシンプルな記号が相性が良い。</p>
+      <div class="sl-a2">
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa2__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">胃がん健診</h3>
+            <p class="sa2__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">肺がん・結核健診</h3>
+            <p class="sa2__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">乳がん健診</h3>
+            <p class="sa2__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">大腸がん健診</h3>
+            <p class="sa2__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">骨粗しょう症健診</h3>
+            <p class="sa2__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA2-③ アイコン代替案：カラードット
+       ===================================================== -->
+  <section class="compare-block compare-block--blue" id="patternA2-dot">
+    <div class="container">
+      <span class="compare-label">A2-③ アイコン代替案</span>
+      <h2 class="compare-title">カラードット（小さな丸）</h2>
+      <p class="compare-desc">アイコンや数字を排除し、ごく小さな色付きの丸だけを使うパターン。より「テキスト本文」に近い印象で、情報量の多いページでも文章が読みやすい。</p>
+      <div class="sl-a2">
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa2__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">胃がん健診</h3>
+            <p class="sa2__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">肺がん・結核健診</h3>
+            <p class="sa2__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">乳がん健診</h3>
+            <p class="sa2__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">大腸がん健診</h3>
+            <p class="sa2__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__dot"></span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">骨粗しょう症健診</h3>
+            <p class="sa2__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA2-④ アイコン代替案：頭文字
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternA2-initial">
+    <div class="container">
+      <span class="compare-label">A2-④ アイコン代替案</span>
+      <h2 class="compare-title">頭文字（項目名の漢字一文字）</h2>
+      <p class="compare-desc">各項目名の最初の漢字一文字を丸の中に表示するパターン。アイコン画像の選定は不要で、それぞれの項目に対応した視覚的な区별感をつけられる。</p>
+      <div class="sl-a2">
+        <div class="sa2">
+          <span class="sa2__char">特</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">特定健康診査（メタボ健診）</h3>
+            <p class="sa2__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__char">胃</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">胃がん健診</h3>
+            <p class="sa2__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__char">肺</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">肺がん・結核健診</h3>
+            <p class="sa2__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__char">乳</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">乳がん健診</h3>
+            <p class="sa2__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__char">大</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">大腸がん健診</h3>
+            <p class="sa2__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sa2">
+          <span class="sa2__char">骨</span>
+          <div class="sa2__body">
+            <h3 class="sa2__title">骨粗しょう症健診</h3>
+            <p class="sa2__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA3
+       ===================================================== -->
+  <section class="compare-block compare-block--beige" id="patternA3">
+    <div class="container">
+      <span class="compare-label">パターン A3</span>
+      <h2 class="compare-title">ストライプ行（偶数行に薄い背景色）</h2>
+      <p class="compare-desc">行の背景を交互に色付けすることで、罫線なしでも行を識別しやすい。テーブルに近い読みやすさがある。</p>
+      <div class="sl-a3">
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">特定健康診査（メタボ健診）</h3><p class="sa3__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">胃がん健診</h3><p class="sa3__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">肺がん・結核健診</h3><p class="sa3__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">乳がん健診</h3><p class="sa3__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">大腸がん健診</h3><p class="sa3__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">前立腺がん健診</h3><p class="sa3__text">前立腺がんの早期発見のためのPSA検査（血液検査）を行っています。50歳以上の男性に推奨しています。</p></div>
+        </div>
+        <div class="sa3">
+          <span class="sa3__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+          <div class="sa3__body"><h3 class="sa3__title">骨粗しょう症健診</h3><p class="sa3__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA4
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternA4">
+    <div class="container">
+      <span class="compare-label">パターン A4</span>
+      <h2 class="compare-title">番号カラム型（アイコンなし・左に連番ブロック）</h2>
+      <p class="compare-desc">アイコンを省略し、左端の連番カラーブロックで視線を誘導。シンプルかつ整然とした印象で、内容の多いテキストとも相性が良い。</p>
+      <div class="sl-a4">
+        <div class="sa4"><div class="sa4__num">01</div><div class="sa4__body"><h3 class="sa4__title">特定健康診査（メタボ健診）</h3><p class="sa4__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p></div></div>
+        <div class="sa4"><div class="sa4__num">02</div><div class="sa4__body"><h3 class="sa4__title">胃がん健診</h3><p class="sa4__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p></div></div>
+        <div class="sa4"><div class="sa4__num">03</div><div class="sa4__body"><h3 class="sa4__title">肺がん・結核健診</h3><p class="sa4__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p></div></div>
+        <div class="sa4"><div class="sa4__num">04</div><div class="sa4__body"><h3 class="sa4__title">乳がん健診</h3><p class="sa4__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p></div></div>
+        <div class="sa4"><div class="sa4__num">05</div><div class="sa4__body"><h3 class="sa4__title">大腸がん健診</h3><p class="sa4__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p></div></div>
+        <div class="sa4"><div class="sa4__num">06</div><div class="sa4__body"><h3 class="sa4__title">前立腺がん健診</h3><p class="sa4__text">前立腺がんの早期発見のためのPSA検査（血液検査）を行っています。50歳以上の男性に推奨しています。</p></div></div>
+        <div class="sa4"><div class="sa4__num">07</div><div class="sa4__body"><h3 class="sa4__title">骨粗しょう症健診</h3><p class="sa4__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンA5
+       ===================================================== -->
+  <section class="compare-block compare-block--beige" id="patternA5">
+    <div class="container">
+      <span class="compare-label">パターン A5</span>
+      <h2 class="compare-title">タグバッジ付きリスト（英語カテゴリタグ＋角丸アイコン）</h2>
+      <p class="compare-desc">タイトル横に英語の小さなタグを添えることで、健診の種別が一目で分かる。アイコンは角丸の淡い背景で現行に近い印象を保つ。</p>
+      <div class="sl-a5">
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">特定健康診査（メタボ健診）</h3><span class="sa5__tag">Metabolic</span></div><p class="sa5__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">胃がん健診</h3><span class="sa5__tag">Stomach</span></div><p class="sa5__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">肺がん・結核健診</h3><span class="sa5__tag">Lung</span></div><p class="sa5__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">乳がん健診</h3><span class="sa5__tag">Breast</span></div><p class="sa5__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">大腸がん健診</h3><span class="sa5__tag">Colon</span></div><p class="sa5__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">前立腺がん健診</h3><span class="sa5__tag">PSA</span></div><p class="sa5__text">前立腺がんの早期発見のためのPSA検査（血液検査）を行っています。50歳以上の男性に推奨しています。</p></div>
+        </div>
+        <div class="sa5">
+          <span class="sa5__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+          <div class="sa5__body"><div class="sa5__head"><h3 class="sa5__title">骨粗しょう症健診</h3><span class="sa5__tag">Bone</span></div><p class="sa5__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンB
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternB">
+    <div class="container">
+      <span class="compare-label">パターン B</span>
+      <h2 class="compare-title">2カラム＋番号＋左ボーダーアクセント</h2>
+      <p class="compare-desc">2列グリッド。番号と左側の太いボーダーラインが視線を誘導。現行より余白が広く、読みやすい構成。</p>
+      <div class="sl-b">
+        <div class="sb">
+          <span class="sb__num">01</span>
+          <div class="sb__body">
+            <h3 class="sb__title">特定健康診査（メタボ健診）</h3>
+            <p class="sb__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">02</span>
+          <div class="sb__body">
+            <h3 class="sb__title">胃がん健診</h3>
+            <p class="sb__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">03</span>
+          <div class="sb__body">
+            <h3 class="sb__title">肺がん・結核健診</h3>
+            <p class="sb__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">04</span>
+          <div class="sb__body">
+            <h3 class="sb__title">乳がん健診</h3>
+            <p class="sb__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">05</span>
+          <div class="sb__body">
+            <h3 class="sb__title">大腸がん健診</h3>
+            <p class="sb__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">06</span>
+          <div class="sb__body">
+            <h3 class="sb__title">骨粗しょう症健診</h3>
+            <p class="sb__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p>
+          </div>
+        </div>
+        <div class="sb">
+          <span class="sb__num">07</span>
+          <div class="sb__body">
+            <h3 class="sb__title">前立腺がん健診</h3>
+            <p class="sb__text">前立腺がんの早期発見のためのPSA検査（血液検査）を行っています。50歳以上の男性に推奨しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンC
+       ===================================================== -->
+  <section class="compare-block compare-block--blue" id="patternC">
+    <div class="container">
+      <span class="compare-label">パターン C</span>
+      <h2 class="compare-title">4カラム・アイコン天地中央</h2>
+      <p class="compare-desc">アイコンを大きく・中央配置にしたシンプルなカード。4列グリッドでコンパクトに並ぶ。アイコンが多い場合に視覚的なリズムが生まれる。</p>
+      <div class="sl-c">
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <h3 class="sc2__title">特定健康診査（メタボ健診）</h3>
+          <p class="sc2__text">40〜74歳を対象とした健診。受診券が使えます。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <h3 class="sc2__title">胃がん健診</h3>
+          <p class="sc2__text">レントゲン車2台で集団健診。内視鏡も対応しています。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+          <h3 class="sc2__title">肺がん・結核健診</h3>
+          <p class="sc2__text">デジタル撮影装置搭載の健診車。車椅子対応の昇降装置つき。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <h3 class="sc2__title">乳がん健診</h3>
+          <p class="sc2__text">視触診・マンモグラフィによる乳房X線検査を実施。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <h3 class="sc2__title">大腸がん健診</h3>
+          <p class="sc2__text">便による潜血反応検査。自宅で簡単に採便できます。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+          <h3 class="sc2__title">前立腺がん健診</h3>
+          <p class="sc2__text">PSA検査（血液検査）。50歳以上の男性に推奨。</p>
+        </div>
+        <div class="sc2">
+          <span class="sc2__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span>
+          <h3 class="sc2__title">骨粗しょう症健診</h3>
+          <p class="sc2__text">超音波で踵の骨の骨密度を測定し早期発見に役立てます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンD
+       ===================================================== -->
+  <section class="compare-block compare-block--white" id="patternD">
+    <div class="container">
+      <span class="compare-label">パターン D</span>
+      <h2 class="compare-title">カラーヘッダー型カード</h2>
+      <p class="compare-desc">カード上部をグラデーション塗りにし、アイコン・タイトルをヘッダーエリアに配置。白地の本文部分との対比でメリハリが強く出る。</p>
+      <div class="sl-d">
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <h3 class="sd__title">特定健康診査（メタボ健診）</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p></div>
+        </div>
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+            <h3 class="sd__title">胃がん健診</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p></div>
+        </div>
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            <h3 class="sd__title">肺がん・結核健診</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p></div>
+        </div>
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            <h3 class="sd__title">乳がん健診</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p></div>
+        </div>
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+            <h3 class="sd__title">大腸がん健診</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p></div>
+        </div>
+        <div class="sd">
+          <div class="sd__header">
+            <span class="sd__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/></svg></span>
+            <h3 class="sd__title">骨粗しょう症健診</h3>
+          </div>
+          <div class="sd__body"><p class="sd__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       パターンE
+       ===================================================== -->
+  <section class="compare-block compare-block--beige" id="patternE">
+    <div class="container">
+      <span class="compare-label">パターン E</span>
+      <h2 class="compare-title">テーブルロウ型（左カラーブロック＋アイコン）</h2>
+      <p class="compare-desc">横幅いっぱいの行型レイアウト。左端のカラーブロックにアイコン、右側に内容。視線が左から右へ流れ、一覧性が高い。</p>
+      <div class="sl-e">
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">特定健康診査（メタボ健診）</h3><p class="se__text">40〜74歳を対象とした特定健康診査。各健保組合・市町村の受診券が使えます。メタボリックシンドロームの早期発見・予防を目的とした健診です。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">胃がん健診</h3><p class="se__text">胃部集団健診用レントゲン車2台で、逗子市・葉山町の住民や事業所の集団健診を行っています。更に内視鏡も行っています。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">肺がん・結核健診</h3><p class="se__text">デジタル撮影装置を装備した集団健診車で、結核及び肺がんの検査を行っています。車椅子の方にも安心してご利用いただけるよう自動昇降装置を配備しています。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">乳がん健診</h3><p class="se__text">視触診とマンモグラフィ（乳房X線撮影装置）による乳房X線検査を行っています。早期発見が治療効果を高めます。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">大腸がん健診</h3><p class="se__text">大腸がんの予防・早期発見の指針として便による潜血反応検査を行っています。簡単に自宅で採便できます。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">前立腺がん健診</h3><p class="se__text">前立腺がんの早期発見のためのPSA検査（血液検査）を行っています。50歳以上の男性に推奨しています。</p></div>
+        </div>
+        <div class="se">
+          <div class="se__left"><span class="se__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></span></div>
+          <div class="se__right"><h3 class="se__title">骨粗しょう症健診</h3><p class="se__text">超音波で踵の骨の検査を行っています。骨密度を測定し、骨粗しょう症の早期発見・予防に役立てます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

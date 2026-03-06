@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D-4 明るい波紋（リップル） - カラーバリエーション</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 28px;
+      color: #333;
+    }
+    .section-group {
+      margin-bottom: 60px;
+    }
+    .group-title {
+      text-align: left;
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+      font-weight: 600;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .preview-item {
+      background: white;
+      padding: 40px;
+      padding-left: 80px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: visible;
+    }
+    .preview-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+    }
+    .section-lead {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    /* ===== 基本アニメーション ===== */
+    @keyframes brightRipple {
+      0% { 
+        transform: translateY(-50%) scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-50%) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* ===== 2色系 ===== */
+    /* E-1: 青×水色 -->
+    .pattern-e1 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e1 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.4), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.35), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e1 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-2: 青×ピンク -->
+    .pattern-e2 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e2 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(255, 107, 168, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.35), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e2 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-3: 青×パープル -->
+    .pattern-e3 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e3 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(139, 92, 246, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.35), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e3 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-4: 青×緑 -->
+    .pattern-e4 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e4 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(34, 197, 94, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.35), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e4 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-5: 青×オレンジ -->
+    .pattern-e5 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e5 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(249, 115, 22, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.35), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e5 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 3色系 ===== */
+    /* E-6: 青×水色×紫 -->
+    .pattern-e6 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e6 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(139, 92, 246, 0.28), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 145, 201, 0.25), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e6 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-7: 青×ピンク×黄色 -->
+    .pattern-e7 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e7 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(255, 107, 168, 0.28), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(251, 191, 36, 0.25), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e7 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-8: 青×緑×青紫 -->
+    .pattern-e8 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e8 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(34, 197, 94, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(67, 205, 128, 0.28), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 145, 201, 0.25), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e8 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-9: 紫×ピンク×青 -->
+    .pattern-e9 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e9 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(139, 92, 246, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(236, 72, 153, 0.28), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 145, 201, 0.25), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e9 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* E-10: シアン×マゼンタ×イエロー -->
+    .pattern-e10 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-e10 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.35), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(236, 72, 153, 0.28), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(251, 191, 36, 0.25), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: brightRipple 2.5s ease-out infinite;
+    }
+    .pattern-e10 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">D-4 明るい波紋（リップル） - カラーバリエーション</h1>
+
+  <!-- 2色系 -->
+  <div class="section-group">
+    <p class="group-title">2色系バリエーション</p>
+    <div class="preview-grid">
+
+      <!-- E-1: 青×水色 -->
+      <div class="preview-item pattern-e1">
+        <p class="preview-label">E-1：青×水色（オリジナル）</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-2: 青×ピンク -->
+      <div class="preview-item pattern-e2">
+        <p class="preview-label">E-2：青×ピンク</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-3: 青×パープル -->
+      <div class="preview-item pattern-e3">
+        <p class="preview-label">E-3：青×パープル</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-4: 青×緑 -->
+      <div class="preview-item pattern-e4">
+        <p class="preview-label">E-4：青×緑</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-5: 青×オレンジ -->
+      <div class="preview-item pattern-e5">
+        <p class="preview-label">E-5：青×オレンジ</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3色系 -->
+  <div class="section-group">
+    <p class="group-title">3色系バリエーション</p>
+    <div class="preview-grid">
+
+      <!-- E-6: 青×水色×紫 -->
+      <div class="preview-item pattern-e6">
+        <p class="preview-label">E-6：青×水色×紫</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-7: 青×ピンク×黄色 -->
+      <div class="preview-item pattern-e7">
+        <p class="preview-label">E-7：青×ピンク×黄色</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-8: 青×緑×青紫 -->
+      <div class="preview-item pattern-e8">
+        <p class="preview-label">E-8：青×緑×ライムグリーン</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-9: 紫×ピンク×青 -->
+      <div class="preview-item pattern-e9">
+        <p class="preview-label">E-9：紫×ピンク×青</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+      <!-- E-10: シアン×マゼンタ×イエロー -->
+      <div class="preview-item pattern-e10">
+        <p class="preview-label">E-10：シアン×マゼンタ×イエロー</p>
+        <header class="section-header">
+          <div class="section-header__inner">
+            <p class="section-label">Resident Health</p>
+            <h2 class="section-title">住民健診</h2>
+          </div>
+        </header>
+        <p class="section-lead">
+          地域住民の方々を対象に、各種の健康診断を行っています。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

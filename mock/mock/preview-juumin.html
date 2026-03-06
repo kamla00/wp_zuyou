@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>住民健診 - セクションタイトル デザイン案</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 28px;
+      color: #333;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .preview-item {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .preview-label {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 案1: 画像が左に配置 */
+    .pattern-1 .section-header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .pattern-1 .section-header__image {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .pattern-1 .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-1 .section-header__text {
+      flex: 1;
+    }
+    .pattern-1 .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .pattern-1 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    /* 案2: 画像が右に配置 */
+    .pattern-2 .section-header {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 30px;
+    }
+    .pattern-2 .section-header__image {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .pattern-2 .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-2 .section-header__text {
+      flex: 1;
+    }
+    .pattern-2 .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .pattern-2 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    /* 案3: 画像が上に配置 */
+    .pattern-3 .section-header {
+      text-align: center;
+    }
+    .pattern-3 .section-header__image {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .pattern-3 .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-3 .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .pattern-3 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    /* 案4: 画像がタイトルの背景 */
+    .pattern-4 .section-header {
+      text-align: center;
+    }
+    .pattern-4 .section-header__image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .pattern-4 .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-4 .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .pattern-4 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    /* 案5: 画像が小さくラベルの次に配置 */
+    .pattern-5 .section-header {
+      text-align: center;
+    }
+    .pattern-5 .label-with-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pattern-5 .label-with-image .section-label {
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .pattern-5 .label-with-image .section-header__image {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .pattern-5 .label-with-image .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-5 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    /* 案6: 画像がタイトルの左に小さく配置 */
+    .pattern-6 .section-header {
+      text-align: center;
+    }
+    .pattern-6 .title-with-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .pattern-6 .section-header__image {
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .pattern-6 .section-header__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pattern-6 .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .pattern-6 .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .section-lead {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+      .pattern-1 .section-header,
+      .pattern-2 .section-header {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .pattern-2 .section-header {
+        flex-direction: column;
+      }
+      .pattern-1 .section-header__text,
+      .pattern-2 .section-header__text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">住民健診セクション - 挿絵デザイン案</h1>
+
+  <div class="preview-grid">
+
+    <!-- 案1: 左側に画像配置 -->
+    <div class="preview-item pattern-1">
+      <p class="preview-label">案1：左側に画像配置</p>
+      <header class="section-header">
+        <div class="section-header__image">
+          <img src="images/健康診断.png" alt="健康診断">
+        </div>
+        <div class="section-header__text">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- 案2: 右側に画像配置 -->
+    <div class="preview-item pattern-2">
+      <p class="preview-label">案2：右側に画像配置</p>
+      <header class="section-header">
+        <div class="section-header__image">
+          <img src="images/健康診断.png" alt="健康診断">
+        </div>
+        <div class="section-header__text">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- 案3: 上に大きく配置 -->
+    <div class="preview-item pattern-3">
+      <p class="preview-label">案3：上に大きく配置</p>
+      <header class="section-header">
+        <div class="section-header__image">
+          <img src="images/健康診断.png" alt="健康診断">
+        </div>
+        <p class="section-label">Resident Health</p>
+        <h2 class="section-title">住民健診</h2>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- 案4: フルワイド画像背景 -->
+    <div class="preview-item pattern-4">
+      <p class="preview-label">案4：フルワイド画像</p>
+      <header class="section-header">
+        <div class="section-header__image">
+          <img src="images/健康診断.png" alt="健康診断">
+        </div>
+        <p class="section-label">Resident Health</p>
+        <h2 class="section-title">住民健診</h2>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- 案5: ラベルしの小さい画像 -->
+    <div class="preview-item pattern-5">
+      <p class="preview-label">案5：ラベル横に小さい画像</p>
+      <header class="section-header">
+        <div class="label-with-image">
+          <p class="section-label">Resident Health</p>
+          <div class="section-header__image">
+            <img src="images/健康診断.png" alt="健康診断">
+          </div>
+        </div>
+        <h2 class="section-title">住民健診</h2>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- 案6: タイトルの左に画像 -->
+    <div class="preview-item pattern-6">
+      <p class="preview-label">案6：タイトル横に画像</p>
+      <header class="section-header">
+        <p class="section-label">Resident Health</p>
+        <div class="title-with-image">
+          <div class="section-header__image">
+            <img src="images/健康診断.png" alt="健康診断">
+          </div>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

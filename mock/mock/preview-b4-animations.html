@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B-4-V8 3層の複数円 - アニメーション案</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 28px;
+      color: #333;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .preview-item {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .preview-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-label {
+      display: block;
+      font-size: 13px;
+      color: #0091c9;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+    }
+    .section-lead {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    /* ===== C-1: パルス効果 ===== */
+    .pattern-c1 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c1 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .pattern-c1 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-2: スケール効果（拡大縮小） ===== */
+    .pattern-c2 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c2 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: scaleUp 3s ease-in-out infinite;
+    }
+    @keyframes scaleUp {
+      0%, 100% { transform: translateY(-50%) scale(1); }
+      50% { transform: translateY(-50%) scale(1.1); }
+    }
+    .pattern-c2 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-3: 遅延パルス（層ごとに異なるタイミング） ===== */
+    .pattern-c3 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c3 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: layeredPulse 3s ease-in-out infinite;
+    }
+    @keyframes layeredPulse {
+      0% { 
+        filter: drop-shadow(0 0 0px rgba(0, 212, 255, 0.3));
+      }
+      25% {
+        filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+      }
+      50% {
+        filter: drop-shadow(0 0 0px rgba(0, 145, 201, 0.2));
+      }
+      75% {
+        filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.3));
+      }
+      100% {
+        filter: drop-shadow(0 0 0px rgba(0, 212, 255, 0.3));
+      }
+    }
+    .pattern-c3 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-4: グロー/輝き効果 ===== */
+    .pattern-c4 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c4 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: glow 4s ease-in-out infinite;
+    }
+    @keyframes glow {
+      0%, 100% { 
+        filter: drop-shadow(0 0 0px rgba(0, 212, 255, 0));
+      }
+      50% {
+        filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
+      }
+    }
+    .pattern-c4 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-5: 波紋効果（リップル） ===== */
+    .pattern-c5 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c5 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: ripple 3s ease-out infinite;
+    }
+    @keyframes ripple {
+      0% { 
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-50%) scale(1.3);
+        opacity: 0;
+      }
+    }
+    .pattern-c5 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-6: 浮遊 + パルス組み合わせ ===== */
+    .pattern-c6 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c6 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatPulse 4s ease-in-out infinite;
+    }
+    @keyframes floatPulse {
+      0%, 100% { 
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+      }
+      25% {
+        transform: translateY(-50%) translateX(-5px);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-50%) translateX(5px);
+        opacity: 1;
+      }
+      75% {
+        transform: translateY(-50%) translateX(-5px);
+        opacity: 0.8;
+      }
+    }
+    .pattern-c6 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-7: スムーズなフェード（呼吸） ===== */
+    .pattern-c7 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c7 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: breathe 5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .pattern-c7 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== C-8: 複合アニメーション（スケール＋グロー） ===== */
+    .pattern-c8 .section-header {
+      position: relative;
+      padding: 30px 0;
+    }
+    .pattern-c8 .section-header::before {
+      content: '';
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 220px;
+      background: 
+        radial-gradient(circle 55px at 45% 55%, rgba(0, 212, 255, 0.12), transparent),
+        radial-gradient(circle 45px at 35% 35%, rgba(0, 145, 201, 0.12), transparent),
+        radial-gradient(circle 25px at 60% 25%, rgba(0, 212, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      animation: scaleGlow 3s ease-in-out infinite;
+    }
+    @keyframes scaleGlow {
+      0%, 100% { 
+        transform: translateY(-50%) scale(1);
+        filter: drop-shadow(0 0 0px rgba(0, 212, 255, 0));
+      }
+      50% {
+        transform: translateY(-50%) scale(1.15);
+        filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.5));
+      }
+    }
+    .pattern-c8 .section-header__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">B-4-V8 3層の複数円 - アニメーション案</h1>
+
+  <div class="preview-grid">
+
+    <!-- C-1: パルス効果 -->
+    <div class="preview-item pattern-c1">
+      <p class="preview-label">C-1：パルス効果（フェード）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-2: スケール効果 -->
+    <div class="preview-item pattern-c2">
+      <p class="preview-label">C-2：スケール効果（拡大縮小）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-3: 遅延パルス -->
+    <div class="preview-item pattern-c3">
+      <p class="preview-label">C-3：グロー＋パルス</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-4: グロー効果 -->
+    <div class="preview-item pattern-c4">
+      <p class="preview-label">C-4：グロー効果（光の輝き）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-5: 波紋効果 -->
+    <div class="preview-item pattern-c5">
+      <p class="preview-label">C-5：波紋効果（リップル）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-6: 浮遊 + パルス -->
+    <div class="preview-item pattern-c6">
+      <p class="preview-label">C-6：浮遊＋パルス</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-7: 呼吸 -->
+    <div class="preview-item pattern-c7">
+      <p class="preview-label">C-7：呼吸効果（スムーズフェード）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+    <!-- C-8: 複合アニメーション -->
+    <div class="preview-item pattern-c8">
+      <p class="preview-label">C-8：複合（スケール＋グロー）</p>
+      <header class="section-header">
+        <div class="section-header__inner">
+          <p class="section-label">Resident Health</p>
+          <h2 class="section-title">住民健診</h2>
+        </div>
+      </header>
+      <p class="section-lead">
+        地域住民の方々を対象に、各種の健康診断を行っています。
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
