@@ -52,6 +52,11 @@ function wp_zuyou_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wp_zuyou_scripts' );
 
+// スクロール復元を最優先で無効化（リロード時のスクロール位置ずれ防止）
+add_action( 'wp_head', function () {
+    echo '<script>if("scrollRestoration" in history){history.scrollRestoration="manual";}document.documentElement.style.scrollBehavior="auto";window.scrollTo(0,0);document.documentElement.style.scrollBehavior="";</script>';
+}, 1 );
+
 // クラシックテーマではブロックエディタ関連のCSSは不要なため除去
 function wp_zuyou_dequeue_block_styles() {
     wp_dequeue_style( 'wp-block-library' );

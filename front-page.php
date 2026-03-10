@@ -26,10 +26,17 @@ html { scroll-behavior: smooth; }
 .news-item__more-btn:hover { background-color: var(--mh--color--primary-400) !important; color: #fff !important; border-color: var(--mh--color--primary-400) !important; box-shadow: 0 4px 12px rgba(60,105,156,0.25); }
 
 /* === Hero 修復: WP グローバルスタイルとの競合対策 === */
-/* タイトルテキストの折り返し防止 */
+/* タイトルテキストの折り返し防止（デスクトップのみ） */
 .hero-title-content { display: flex !important; flex-direction: column !important; justify-content: center !important; }
-.hero-title__blue,
-.hero-title__black { display: block !important; white-space: nowrap !important; overflow-wrap: normal !important; word-break: normal !important; }
+@media (min-width: 768px) {
+  .hero-title__blue,
+  .hero-title__black { display: block !important; white-space: nowrap !important; overflow-wrap: normal !important; word-break: normal !important; }
+}
+@media (max-width: 767px) {
+  .hero-title__blue,
+  .hero-title__black { display: block !important; white-space: normal !important; overflow-wrap: break-word !important; word-break: keep-all !important; }
+  .hero { overflow: hidden !important; }
+}
 /* 情報パネルのデフォルト非表示を強制 */
 .hero-info-content { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
 .hero-info-content.is-active { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; animation: heroInfoFadeIn 0.3s ease forwards; }
@@ -60,6 +67,58 @@ html { scroll-behavior: smooth; }
     flex-shrink: 0 !important;
   }
   .hero-bg::after { display: none !important; }
+}
+
+/* スマホ: ヒーローレイアウト縦並び・写真のアスペクト比固定 */
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column !important;
+  }
+  .hero-content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .hero-inner-content {
+    max-width: none !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .hero-bg {
+    width: 100% !important;
+    clip-path: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+  }
+  .hero-bg__inner {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 70vw !important;
+    height: 70vw !important;
+    aspect-ratio: 1 / 1 !important;
+    clip-path: url(#hero-wave-clip) !important;
+    flex-shrink: 0 !important;
+  }
+  .hero-bg::after { display: none !important; }
+}
+
+/* スマホ: ヒーローボタンを横1列・コンパクトに */
+@media (max-width: 767px) {
+  .hero-buttons {
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+  }
+  .hero-info-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 10px 14px 10px 16px !important;
+    font-size: 1.2rem !important;
+    justify-content: space-between !important;
+  }
+  .hero-info-btn__icon { display: block !important; }
 }
 </style>
 <?php }, 100 );
@@ -170,31 +229,31 @@ get_header(); ?>
                   <tr>
                     <th colspan="2">診療時間</th>
                     <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
-                    <th>日・祝 / 年末年始</th>
+                    <th>日・祝 /<br class="medical-hours-sp-break">年末年始</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td rowspan="2" class="td-subject">内科（小児科）</td>
-                    <td>10:00~17:00</td>
+                    <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">（小児科）</td>
+                    <td>10:00~<br class="medical-hours-sp-break">17:00</td>
                     <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                   <tr>
-                    <td>20:00~23:00</td>
+                    <td>20:00~<br class="medical-hours-sp-break">23:00</td>
                     <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td rowspan="2" class="td-subject">外科</td>
-                    <td>10:00~17:00</td>
+                    <td>10:00~<br class="medical-hours-sp-break">17:00</td>
                     <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                   <tr>
-                    <td>20:00~23:00</td>
+                    <td>20:00~<br class="medical-hours-sp-break">23:00</td>
                     <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td class="td-subject">歯科</td>
-                    <td>10:00~17:00</td>
+                    <td>10:00~<br class="medical-hours-sp-break">17:00</td>
                     <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                 </tbody>

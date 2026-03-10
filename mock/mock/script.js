@@ -3,6 +3,15 @@
  * JavaScript インタラクション
  */
 
+// ブラウザのスクロール復元機能を無効化（リロード時にトップに戻す）
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+// scroll-behavior: smooth を一時的に無効にして即座にトップへ
+document.documentElement.style.scrollBehavior = 'auto';
+window.scrollTo(0, 0);
+document.documentElement.style.scrollBehavior = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   // _includes.js 経由でコンポーネント読み込み後に呼ばれる場合と
   // 直接呼ばれる場合の両方に対応
@@ -88,29 +97,45 @@ function initNewsAccordion() {
  * Hero Info Tabs Interaction
  */
 function initHeroInfo() {
-  const infoBtns = document.querySelectorAll('.js-info-btn');
-  const infoContents = document.querySelectorAll('.js-info-content');
-  
-  if (!infoBtns.length || !infoContents.length) return;
+  const heroInners = document.querySelectorAll('.hero-inner-content');
 
-  infoBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-target');
-      const isActive = btn.classList.contains('is-active');
-      
-      // Close all others
-      infoBtns.forEach(b => {
-        if (b !== btn) b.classList.remove('is-active');
-      });
-      infoContents.forEach(content => {
-        if (content.id !== `info-${target}`) content.classList.remove('is-active');
-      });
+  if (!heroInners.length) return;
 
-      // Toggle current
-      btn.classList.toggle('is-active');
-      const content = document.getElementById(`info-${target}`);
-      if (content) content.classList.toggle('is-active');
+  heroInners.forEach(heroInner => {
+    if (heroInner.dataset.heroInfoInitialized === 'true') return;
+
+    const infoBtns = heroInner.querySelectorAll('.js-info-btn');
+    const infoContents = heroInner.querySelectorAll('.js-info-content');
+    const panel = heroInner.querySelector('.js-info-panel');
+
+    if (!infoBtns.length || !infoContents.length || !panel) return;
+
+    heroInner.dataset.heroInfoInitialized = 'true';
+
+    infoBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        const isActive = btn.classList.contains('is-active');
+
+        infoBtns.forEach(otherBtn => {
+          otherBtn.classList.remove('is-active');
+        });
+        infoContents.forEach(content => {
+          content.classList.remove('is-active');
+        });
+
+        if (!isActive) {
+          btn.classList.add('is-active');
+          const content = heroInner.querySelector(`#info-${target}`);
+          if (content) content.classList.add('is-active');
+        }
+
+        panel.classList.toggle('is-open', !isActive);
+      });
     });
+
+    const hasActiveContent = heroInner.querySelector('.js-info-content.is-active');
+    panel.classList.toggle('is-open', !!hasActiveContent);
   });
 }
 
