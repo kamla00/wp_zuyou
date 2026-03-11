@@ -307,23 +307,40 @@ function initMobileMenu() {
   
   if (!navBtn || !nav) return;
 
-  navBtn.addEventListener('click', () => {
-    navBtn.classList.toggle('is-open');
-    nav.classList.toggle('is-open');
-    
+  const closeMenu = () => {
+    navBtn.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  const openMenu = () => {
+    navBtn.classList.add('is-open');
+    nav.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  navBtn.addEventListener('click', event => {
+    event.stopPropagation();
+
     if (nav.classList.contains('is-open')) {
-        document.body.style.overflow = 'hidden';
+      closeMenu();
     } else {
-        document.body.style.overflow = '';
+      openMenu();
     }
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains('is-open')) return;
+
+    if (event.target.closest('.l-nav-btn')) return;
+
+    closeMenu();
   });
   
   // Close when clicking links
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        navBtn.classList.remove('is-open');
-        nav.classList.remove('is-open');
-        document.body.style.overflow = '';
+        closeMenu();
     });
   });
 }
