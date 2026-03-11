@@ -421,14 +421,14 @@ get_header(); ?>
               <span class="business-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
               <span class="business-item__text">健診事業</span>
             </a>
-            <div class="business-item">
+            <a href="<?php echo home_url('/emergency/'); ?>" class="business-item">
               <span class="business-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
               <span class="business-item__text">休日・夜間急患診療</span>
-            </div>
-            <div class="business-item">
+            </a>
+            <a href="<?php echo home_url('/visiting-nurse/'); ?>" class="business-item">
               <span class="business-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
               <span class="business-item__text">訪問看護ステーション</span>
-            </div>
+            </a>
             <a href="<?php echo home_url('/home-care/'); ?>" class="business-item">
               <span class="business-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></span>
               <span class="business-item__text">在宅医療相談室</span>
@@ -536,9 +536,31 @@ get_header(); ?>
         </div>
       </div>
       <div class="calendar-wrapper fade-in">
-        <div class="calendar-item"><img src="<?php echo $_t; ?>/images/カレンダー1.png" alt="診療カレンダー1"></div>
-        <div class="calendar-item"><img src="<?php echo $_t; ?>/images/カレンダー2.png" alt="診療カレンダー2"></div>
+        <div class="calendar-item">
+          <h3 class="calendar-item__title">今月の予定</h3>
+          <iframe src="https://calendar.google.com/calendar/embed?src=zuyou.kensyu%40gmail.com&ctz=Asia%2FTokyo"
+            style="border: 0;" width="100%" height="500" frameborder="0" scrolling="no" title="今月の予定"></iframe>
+        </div>
+        <div class="calendar-item">
+          <h3 class="calendar-item__title">来月の予定</h3>
+          <iframe id="js-next-month-calendar" src=""
+            style="border: 0;" width="100%" height="500" frameborder="0" scrolling="no" title="来月の予定"></iframe>
+        </div>
       </div>
+      <script>
+      (function () {
+        var calendarId = 'zuyou.kensyu@gmail.com';
+        var encodedId = encodeURIComponent(calendarId);
+        var now = new Date();
+        var nextMonthFirst = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+        var nextMonthLast  = new Date(now.getFullYear(), now.getMonth() + 2, 0);
+        var pad = function (n) { return String(n).padStart(2, '0'); };
+        var fmt = function (d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); };
+        var dateRange = fmt(nextMonthFirst) + '/' + fmt(nextMonthLast);
+        var url = 'https://calendar.google.com/calendar/embed?src=' + encodedId + '&ctz=Asia%2FTokyo&dates=' + dateRange;
+        document.getElementById('js-next-month-calendar').src = url;
+      })();
+      </script>
     </div>
   </section>
 

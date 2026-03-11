@@ -79,6 +79,130 @@ body.admin-bar .l-header { top: 32px !important; }
 
 /* スマホ: ヒーローレイアウト縦並び・写真アスペクト比固定 */
 @media (max-width: 767px) {
+  main p:not(.section-label):not(.hero-subtitle):not(.service-card__subtitle) {
+    font-size: 1.3rem !important;
+    line-height: 1.75 !important;
+  }
+  .section-title {
+    font-size: 2.0rem !important;
+    line-height: 1.25 !important;
+  }
+  .about-sub-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 10px !important;
+    gap: 10px !important;
+  }
+  .history-date {
+    font-size: 1.4rem !important;
+    flex-basis: auto !important;
+  }
+  .history-desc {
+    font-size: 1.3rem !important;
+    line-height: 1.7 !important;
+  }
+  .business-item {
+    padding: 16px !important;
+    gap: 12px !important;
+  }
+  .business-item__icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .business-item__icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .business-item__text {
+    font-size: 1.4rem !important;
+    line-height: 1.35 !important;
+  }
+  .access-info h3.access-info__name {
+    font-size: 1.7rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 24px !important;
+    letter-spacing: 0.02em !important;
+  }
+  .access-detail {
+    gap: 6px !important;
+    padding: 16px 0 !important;
+  }
+  .access-detail dt {
+    font-size: 1.3rem !important;
+    line-height: 1.5 !important;
+    flex-basis: auto !important;
+  }
+  .access-detail dd {
+    font-size: 1.3rem !important;
+    line-height: 1.7 !important;
+  }
+  .access-sub-item {
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+  }
+  .access-label {
+    font-size: 1.1rem !important;
+    height: 22px !important;
+    width: 54px !important;
+  }
+  .u-text-lg {
+    font-size: 1.4rem !important;
+  }
+  .about-section {
+    padding-bottom: 48px !important;
+  }
+  .about-intro {
+    margin-bottom: 48px !important;
+    gap: 20px !important;
+  }
+  .about-grid {
+    gap: 40px !important;
+  }
+  .service-card__title {
+    font-size: 1.7rem !important;
+    line-height: 1.2 !important;
+  }
+  .service-card__more {
+    gap: 10px !important;
+  }
+  .service-card__more-btn {
+    font-size: 1.2rem !important;
+    padding: 10px 18px !important;
+    gap: 10px !important;
+  }
+  .service-card__more-btn--reserve {
+    border-width: 1px !important;
+  }
+  .service-card__illu-wrap {
+    height: auto !important;
+  }
+  .service-card__illu-content img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    border-radius: 24px !important;
+  }
+  .about-intro__image {
+    width: 70vw !important;
+    max-width: 70vw !important;
+    margin: 0 auto !important;
+  }
+  .about-intro__image img {
+    width: 100% !important;
+    height: 70vw !important;
+    max-width: 70vw !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .facility-slide img {
+    width: 70vw !important;
+    height: 70vw !important;
+    max-width: 70vw !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
   .hero {
     flex-direction: column !important;
     min-height: auto !important;
@@ -247,6 +371,114 @@ body.admin-bar .l-header { top: 32px !important; }
 @media (max-width: 767px) {
   .medical-hours-sp-break {
     display: inline;
+  }
+}
+
+/* トップページのアクセス地図を詰めて余白を抑える */
+.home .access-section {
+  padding-bottom: 32px;
+}
+
+.home .access-wrapper {
+  align-items: stretch;
+}
+
+.home .access-map {
+  min-height: auto;
+}
+
+.home .access-map iframe {
+  aspect-ratio: 4 / 3;
+  min-height: 380px;
+}
+
+/* トップページのカレンダーを在宅医療ページと同じ体裁に揃える */
+.home .calendar-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.home .calendar-item {
+  background: #fff;
+  border: 1px solid var(--mh--color--primary-100);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(60, 105, 156, 0.07);
+  overflow: visible;
+}
+
+.home .calendar-item__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--mh--color--primary-700);
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--mh--color--primary-100);
+}
+
+.home .calendar-item iframe {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* フッターの情報量を整理して縦並びにする */
+.footer-logo {
+  font-size: 1.6rem;
+  white-space: normal;
+}
+
+.footer-navs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav li {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    align-items: flex-start;
+  }
+
+  .footer-about {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home .access-section {
+    padding-bottom: 24px;
+  }
+
+  .home .access-map {
+    min-height: auto;
+  }
+
+  .home .access-map iframe {
+    min-height: 280px;
+  }
+
+  .home .calendar-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .home .calendar-item {
+    padding: 20px;
+  }
+
+  .footer-logo {
+    font-size: 1.45rem;
   }
 }
 
