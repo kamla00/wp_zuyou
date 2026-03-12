@@ -425,11 +425,16 @@ body.admin-bar .l-header { top: 32px !important; }
   }
 
   .l-nav-cv {
-    width: fit-content !important;
+    width: calc(50% - 36px) !important;
     margin-left: auto !important;
-    margin-right: calc(25% - 45px) !important;
+    margin-right: 18px !important;
     margin-top: 18px !important;
     margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .hero {
@@ -868,6 +873,7 @@ body.admin-bar .l-header { top: 32px !important; }
 
   .l-nav-cv__btn {
     width: fit-content;
+    margin-inline: auto;
   }
 
   .l-nav-cv .c-cv-btn__link {
