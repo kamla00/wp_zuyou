@@ -21,6 +21,120 @@ add_action( 'wp_head', function () { ?>
   z-index: 0; pointer-events: none; animation: brightRipple 2.5s ease-out infinite;
 }
 .section-header__inner p, .section-header__inner h2 { position: relative; z-index: 1; }
+.dock-info-row__time {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.38em;
+  text-align: left;
+}
+.dock-info-row__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.dock-info-row__time::before {
+  content: '';
+  width: 0.9em;
+  height: 0.9em;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M12 7v5l3 2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M12 7v5l3 2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (max-width: 767px) {
+  .page-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .page-hero__inner {
+    padding-top: calc(var(--mh--header--height) + 28px);
+    padding-bottom: 28px;
+  }
+
+  .page-hero__label {
+    margin-bottom: 6px;
+  }
+
+  .page-hero__title {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  .page-hero__sub {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    padding-top: 12px;
+  }
+
+  .dock-info-card--full {
+    padding: 18px 16px;
+  }
+
+  .dock-info-card__title {
+    font-size: 2.0rem;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .dock-info-rows {
+    gap: 12px;
+  }
+
+  .dock-info-row {
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 1.3rem;
+    line-height: 1.75;
+    flex-direction: column;
+  }
+
+  .dock-info-row__label {
+    font-size: 1.2rem;
+    line-height: 1.45;
+    padding: 4px 10px;
+  }
+
+  .dock-info-row__time {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+
+  .dock-info-row__content {
+    width: 100%;
+  }
+
+  .dock-info-row small {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+
+  .dock-contact-actions {
+    gap: 14px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .dock-contact-tel {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .dock-contact-tel svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .dock-contact-web-btn {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    padding: 11px 20px;
+  }
+}
 </style>
 <?php }, 20 );
 add_action( 'wp_footer', 'wp_zuyou_print_particle_canvas', 20 );
@@ -256,7 +370,7 @@ get_header(); ?>
         <div class="dock-info-rows">
           <div class="dock-info-row">
             <span class="dock-info-row__label">健診時間</span>
-            <span><span class="dock-info-row__time">9:00〜12:00</span><small>受診者の都合や機器の状況により、終了時間が午後1時になる場合もあります</small></span>
+            <span class="dock-info-row__content"><span class="dock-info-row__time">9:00〜12:00</span><small>受診者の都合や機器の状況により、終了時間が午後1時になる場合もあります</small></span>
           </div>
           <div class="dock-info-row">
             <span class="dock-info-row__label">お申込み</span>

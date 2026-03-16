@@ -58,6 +58,53 @@ add_action( 'wp_head', function () { ?>
 .fbd__notes-body { flex: 1; background: var(--mh--color--primary-400); padding: 40px 50px; border-radius: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin-left: -60px; position: relative; z-index: 2; color: #fff; }
 .fbd__notes-body p { margin: 0.5em 0; color: #fff; }
 .fbd__notes-illu:hover .fbd__notes-img { transform: translateX(-10px) scale(1.02); }
+.page-hero__container .page-hero__title { font-size: min(10vw, 5.0rem); }
+@media (max-width: 767px) {
+  .page-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .page-hero__inner {
+    padding-top: calc(var(--mh--header--height) + 28px);
+    padding-bottom: 28px;
+  }
+
+  .page-hero__label {
+    margin-bottom: 6px;
+  }
+
+  .page-hero__container .page-hero__title {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  .page-hero__sub {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    padding-top: 12px;
+  }
+
+  .fbd__notes {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .fbd__notes-illu {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .fbd__notes-body {
+    width: 100%;
+    margin-left: 0;
+    padding: 28px 24px;
+    border-radius: 24px;
+  }
+}
 </style>
 <?php }, 20 );
 add_action( 'wp_footer', 'wp_zuyou_print_particle_canvas', 20 );
@@ -72,7 +119,7 @@ get_header(); ?>
       <div class="container">
         <p class="page-hero__label">Visiting Nurse</p>
         <div class="page-hero__container">
-          <h1 class="page-hero__title" style="font-size: min(10vw, 5.0rem);">訪問看護</h1>
+          <h1 class="page-hero__title">訪問看護</h1>
           <p class="page-hero__sub">訪問看護・居宅介護支援の2つのサービスを提供しております。『どうやって利用すればいいの？』『どんなサービスが使えるの？』など、難しくて分からないことがたくさんあると思います。どうぞ、お気軽にご相談下さい。</p>
         </div>
       </div>

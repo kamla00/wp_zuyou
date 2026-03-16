@@ -46,6 +46,31 @@ add_action( 'wp_head', function () { ?>
 .emergency-notes__icon svg { width: 100%; height: 100%; }
 .emergency-notes__text { font-size: 1.5rem; line-height: 1.8; color: var(--mh--color--primary-800); margin: 0; }
 @media (max-width: 767px) {
+  .page-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .page-hero__inner {
+    padding-top: calc(var(--mh--header--height) + 28px);
+    padding-bottom: 28px;
+  }
+
+  .page-hero__label {
+    margin-bottom: 6px;
+  }
+
+  .page-hero__title {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  .page-hero__sub {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    padding-top: 12px;
+  }
+
   .emergency-notes { flex-direction: column; }
   .reception-info__table th, .reception-info__table td { padding: 12px 10px; font-size: 1.5rem; }
   .reception-info__table th { width: 90px; }
@@ -86,7 +111,7 @@ get_header(); ?>
               <tr>
                 <th colspan="2">診療時間</th>
                 <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
-                <th>日・祝 / 年末年始</th>
+                <th>日・祝 /<br class="medical-hours-sp-break">年末年始</th>
               </tr>
             </thead>
             <tbody>
@@ -153,19 +178,19 @@ get_header(); ?>
           <span class="emergency-notes__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/></svg>
           </span>
-          <p class="emergency-notes__text">マイナンバーカードまたは<br>健康保険証・医療証を<br>必ずご持参ください。</p>
+          <p class="emergency-notes__text">マイナンバーカードまたは健康保険証・医療証を必ずご持参ください。</p>
         </li>
         <li class="emergency-notes__item">
           <span class="emergency-notes__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
           </span>
-          <p class="emergency-notes__text">服用中のお薬がある場合は<br>お薬手帳とともに<br>ご持参ください。</p>
+          <p class="emergency-notes__text">服用中のお薬がある場合はお薬手帳とともにご持参ください。</p>
         </li>
         <li class="emergency-notes__item">
           <span class="emergency-notes__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </span>
-          <p class="emergency-notes__text">当診療は応急処置です。<br>翌日、かかりつけ医療機関にて<br>改めて受診してください。</p>
+          <p class="emergency-notes__text">当診療は応急処置です。翌日、かかりつけ医療機関にて改めて受診してください。</p>
         </li>
       </ul>
       <div class="services-list">

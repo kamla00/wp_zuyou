@@ -28,7 +28,7 @@ body.admin-bar .l-header { top: 32px !important; }
 :root { --mh--contents--width: 1600px; }
 
 /* ヘッダーロゴのサイト名: 折り返しなし・文字サイズ縮小（デスクトップのみ） */
-@media (width >= 1024px) {
+@media (width >= 1280px) {
   .l-header-logo__site-name {
     font-size: 1.7rem;
     white-space: nowrap;
@@ -369,7 +369,7 @@ body.admin-bar .l-header { top: 32px !important; }
 }
 
 /* タブレット: ヒーロー文字を少し抑え、写真と干渉しないようにする */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .l-nav {
     left: 0 !important;
     right: 0 !important;
@@ -554,7 +554,7 @@ body.admin-bar .l-header { top: 32px !important; }
 }
 
 /* ヘッダー右端の紺色エリア: サンプルCSS準拠 (viewBox 1433幅・右端カーブ付き) */
-@media (width >= 1024px) {
+@media (width >= 1280px) {
   .l-header::after {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201433%20153%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M284.16%200H0C67.4002%207.9504%20130.098%2014.2587%20177.784%2031.5913C266.345%2063.7834%20273.981%2082.2075%20354.373%20112.037C428.676%20139.733%20574.499%20133.875%20646.782%20122.861C782.617%20102.154%20905.069%20115.962%201031.21%20142.556C1145.19%20164.275%201246.78%20150.136%201320%20118.415C1393.22%2086.69%201426%2097%201433%20100V0H284.16Z%22%20fill%3D%22%233C699C%22%2F%3E%3C%2Fsvg%3E");
   }
@@ -679,7 +679,7 @@ body.admin-bar .l-header { top: 32px !important; }
 }
 
 /* スマホメニュー: Sample 01 のやわらかいガラス感を反映 */
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .l-nav-brand {
     position: absolute;
     top: 14px;
@@ -902,7 +902,7 @@ body.admin-bar .l-header { top: 32px !important; }
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .l-nav-brand {
     display: none;
   }

@@ -20,8 +20,8 @@
   --mh--header-mv--height: 93px;
   --mh--sidebar--width: 240px;
 
-  --mh--contents--width: 1400px;
-  --mh--contents--wide-width: 1400px;
+  --mh--contents--width: 1600px;
+  --mh--contents--wide-width: 1600px;
   --mh--contents--max-width: 1680px;
   --mh--contents--padding--side: 20px;
   --mh--contents--width-with-padding: calc(var(--mh--contents--width) + var(--mh--contents--padding--side) * 2);
@@ -83,13 +83,13 @@
   }
 }
 
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   :root {
     --mh--header--height: 80px;
     --mh--header-mv--height: 93px;
   }
 }
-@media (width >= 1280px) {
+@media (width >= 1024px) {
   .u-hidden-xl-up {
     display: none !important;
   }
@@ -114,7 +114,7 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 68.75%;
 }
 body {
   font-family: var(--mh--font-family--base);
@@ -325,7 +325,7 @@ ul, ol {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   min-width: 320px;
   opacity: 0;
@@ -374,7 +374,7 @@ ul, ol {
   height: var(--mh--header--height);
   padding-inline: 15px;
   transition: height 0.48s var(--mh--easing), padding 0.48s var(--mh--easing);
-  z-index: 11;
+  z-index: 101;
 }
 
 @media (width >= 768px ) {
@@ -383,7 +383,7 @@ ul, ol {
   }
 }
 
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   .l-header::before {
     top: 0;
     height: 154px;
@@ -392,7 +392,7 @@ ul, ol {
   .l-header::after {
     top: 0;
     height: 135px;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201320%20153%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M484.16%200H0C67.4002%207.9504%20130.098%2014.2587%20177.784%2031.5913C266.345%2063.7834%20273.981%2082.2075%20354.373%20112.037C428.676%20139.733%20574.499%20133.875%20646.782%20122.861C782.617%20102.154%20905.069%20115.962%201031.21%20142.556C1145.19%20164.275%201246.78%20150.136%201320%20118.415V0H484.16Z%22%20fill%3D%22%233C699C%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201433%20153%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M284.16%200H0C67.4002%207.9504%20130.098%2014.2587%20177.784%2031.5913C266.345%2063.7834%20273.981%2082.2075%20354.373%20112.037C428.676%20139.733%20574.499%20133.875%20646.782%20122.861C782.617%20102.154%20905.069%20115.962%201031.21%20142.556C1145.19%20164.275%201246.78%20150.136%201320%20118.415C1393.22%2086.69%201426%2097%201433%20100V0H284.16Z%22%20fill%3D%22%233C699C%22%2F%3E%3C%2Fsvg%3E");
   }
   .l-header .l-header__inner {
     padding-block: 27px 0;
@@ -455,7 +455,7 @@ ul, ol {
 .l-header-logo__txt {
   font-family: "Noto Serif JP", serif;
   color: var(--mh--color--grayscale-800);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.05em;
@@ -466,13 +466,13 @@ ul, ol {
   font-family: "Noto Serif JP", serif;
   color: var(--mh--color--primary-500);
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.2;
   letter-spacing: 0.05em;
   text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff;
 }
 
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   .l-header-logo {
     width: 264px;
     flex: 0 0 264px;
@@ -481,10 +481,10 @@ ul, ol {
     height: 46px;
   }
   .l-header-logo__txt {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   .l-header-logo__site-name {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 }
 
@@ -567,7 +567,7 @@ ul, ol {
   overscroll-behavior-y: none;
   -webkit-overflow-scrolling: touch;
 }
-@media (width < 1280px) {
+@media (width < 1024px) {
   .l-nav {
     overflow: auto;
     visibility: hidden;
@@ -582,7 +582,7 @@ ul, ol {
     opacity: 1;
   }
 }
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   .l-nav {
     position: static;
     flex: 1;
@@ -611,7 +611,7 @@ ul, ol {
   letter-spacing: var(--mh--letter-spacing--lg);
 }
 
-@media (width < 1280px) {
+@media (width < 1024px) {
   .l-nav-list {
     max-width: 500px;
     margin-inline: auto;
@@ -639,7 +639,7 @@ ul, ol {
   }
 }
 
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   .l-nav-list__item-txt {
     font-size: 2rem;
     font-weight: 500;
@@ -717,14 +717,14 @@ ul, ol {
   display: flex;
   gap: 15px 0;
 }
-@media (width < 1280px) {
+@media (width < 1024px) {
   .l-nav-cv {
     flex-direction: column;
     max-width: 320px;
     margin: 40px auto 0;
   }
 }
-@media (width >= 1280px ) {
+@media (width >= 1024px ) {
   .l-nav-cv {
     justify-content: flex-end;
     align-items: center;
@@ -742,7 +742,7 @@ ul, ol {
   z-index: 10;
   display: none;
 }
-@media (width < 1280px) {
+@media (width < 1024px) {
   .l-nav-overlay {
     background-color: var(--mh--color--grayscale-100);
   }
@@ -1046,6 +1046,7 @@ ul, ol {
   padding-top: 60px;
   padding-bottom: 60px;
   position: relative;
+  z-index: 0;
 }
 
 @media (min-width: 768px) {
@@ -1260,12 +1261,14 @@ ul, ol {
   display: block;
   color: var(--mh--color--primary-500);
   position: relative;
+  white-space: nowrap;
 }
 
 .hero-title__black {
   display: block;
   color: var(--mh--color--grayscale-900);
   position: relative;
+  white-space: nowrap;
 }
 
 .hero-text {
@@ -1652,11 +1655,11 @@ ul, ol {
 
 @media (min-width: 1100px) {
   .news-left {
-    flex: 1; /* 残りのスペースをすべて使う */
+    flex: 0 0 50%;
     min-width: 0;
   }
   .news-right {
-    flex: 0 0 600px; /* 急患診療の幅は固定 */
+    flex: 0 0 50%;
   }
 }
 
@@ -1774,6 +1777,17 @@ ul, ol {
   font-size: 1.5rem;
   line-height: 1.8;
 }
+.news-item__more {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--mh--color--primary-500);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.news-item__more:hover {
+  text-decoration: underline;
+}
 
 /* ==================================================
    Medical Hours Table
@@ -1829,7 +1843,7 @@ ul, ol {
 .medical-hours__table th,
 .medical-hours__table td {
   border: 1px solid var(--mh--color--primary-200);
-  padding: 12px 8px; /* パディングを絞って幅を節約 */
+  padding: 12px 12px;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
@@ -1901,7 +1915,7 @@ ul, ol {
   overflow: hidden;
   line-height: 0;
   transform: rotate(0deg); /* 180degから変更：新しいパスは上部を塗りつぶすため */
-  z-index: 10; /* 大幅に増加させて、上のセクションの ::before（z-index: 1）より前に来るようにする */
+  z-index: 2; /* セクション装飾（z-index: 1）より前・ヘッダー（z-index: 100）より後ろ */
 }
 
 .wave-divider-top svg {

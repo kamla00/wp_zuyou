@@ -50,6 +50,32 @@ add_action( 'wp_head', function () { ?>
 .counter-card__name { font-size: 2.0rem; font-weight: 700; color: var(--mh--color--primary-800); margin-bottom: 15px; display: block; line-height: 1.4; }
 .counter-card__link { display: inline-flex; align-items: center; color: #3c699c; text-decoration: none; font-weight: 700; gap: 8px; font-size: 1.6rem; }
 .counter-card__link:hover { text-decoration: underline; }
+@media (max-width: 767px) {
+  .page-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .page-hero__inner {
+    padding-top: calc(var(--mh--header--height) + 28px);
+    padding-bottom: 28px;
+  }
+
+  .page-hero__label {
+    margin-bottom: 6px;
+  }
+
+  .page-hero__title {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  .page-hero__sub {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    padding-top: 12px;
+  }
+}
 @media (max-width: 768px) {
   .inclusive-center-grid, .counter-grid { grid-template-columns: 1fr; }
   .reception-info { padding: 20px; }

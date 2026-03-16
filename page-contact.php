@@ -127,6 +127,31 @@ add_action( 'wp_head', function () { ?>
 .contact-balloon__text { font-size: 1.5rem; line-height: 1.6; color: var(--mh--color--primary-800); font-weight: 500; margin: 0; }
 .contact-intro__img { max-width: 240px; width: 100%; height: auto; }
 @media (max-width: 767px) {
+  .page-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .page-hero__inner {
+    padding-top: calc(var(--mh--header--height) + 28px);
+    padding-bottom: 28px;
+  }
+
+  .page-hero__label {
+    margin-bottom: 6px;
+  }
+
+  .page-hero__title {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  .page-hero__sub {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    padding-top: 12px;
+  }
+
   .contact-intro { flex-direction: column-reverse; }
   .contact-balloon::after { top: -10px; right: 50%; margin-right: -10px; margin-top: 0; border-width: 0 10px 12px 10px; border-color: transparent transparent var(--mh--color--primary-50) transparent; }
   .contact-balloon::before { top: -13px; right: 50%; margin-right: -11px; margin-top: 0; border-width: 0 11px 13px 11px; border-color: transparent transparent var(--mh--color--primary-200) transparent; }
