@@ -296,7 +296,7 @@ get_header(); ?>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">住民健診から人間ドックまで、高度な検査体制で健康をサポート</h4>
-            <p class="service-card__description">地域の一環とした健康管理を行うために住民健診、事業所（職域）健診、学校健診、人間ドック、進学・就職等の健康診断を行っています。<br><br><strong>お問い合わせ：Tel.046-873-7752</strong></p>
+            <p class="service-card__description">地域の一環とした健康管理を行うために住民健診、事業所（職域）健診、学校健診、人間ドック、進学・就職等の健康診断を行っています。<br><br><strong>お問い合わせ：046-873-7752</strong></p>
             <div class="service-card__more">
               <a href="<?php echo home_url('/screening/'); ?>" class="service-card__more-btn"><span>もっと見る</span></a>
               <a href="https://www.mrso.jp/mrs/zic/Plans/selectPlan" target="_blank" rel="noopener noreferrer" class="service-card__more-btn service-card__more-btn--reserve"><span>健診WEB予約</span></a>

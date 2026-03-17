@@ -76,11 +76,24 @@ add_action( 'wp_head', function () { ?>
     padding-top: 12px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .inclusive-center-grid, .counter-grid { grid-template-columns: 1fr; }
-  .reception-info { padding: 20px; }
-  .reception-info__table th { width: 100px; }
+  .reception-info { padding: 25px 20px; }
+  .reception-info__table th, .reception-info__table td { display: block; width: 100%; padding: 10px 0; }
+  .reception-info__table th { padding-bottom: 5px; color: var(--mh--color--primary-800); font-size: 1.7rem; border-bottom: none; }
+  .reception-info__table td { padding-top: 0; padding-bottom: 20px; font-size: 1.6rem; }
+  .reception-info__table td small { font-size: 1.5rem; }
+  .reception-info__table tr:last-child td { padding-bottom: 0; border-bottom: none; }
   .calendar-wrapper { grid-template-columns: 1fr; }
+
+  /* 連絡先内の連結を、非常に狭い画面では縦に並べる */
+  @media (max-width: 480px) {
+    .reception-info__table td span[style*="flex"] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+  }
 }
 .calendar-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .calendar-item { background: #fff; border: 1px solid var(--mh--color--primary-100); border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(60,105,156,0.07); }
@@ -241,7 +254,7 @@ get_header(); ?>
           </tr>
           <tr>
             <th>受付時間</th>
-            <td>午前 8:30 〜 午後 5:15</td>
+            <td>8:30 〜 17:15</td>
           </tr>
           <tr>
             <th>相談方法</th>
