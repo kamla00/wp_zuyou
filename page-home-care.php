@@ -29,6 +29,9 @@ add_action( 'wp_head', function () { ?>
 .info-box__contact { margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--mh--color--secondary-600); display: flex; flex-wrap: wrap; gap: 20px; font-weight: 700; color: #244e6d; }
 .reception-info { margin-top: 60px; background: #fff; padding: 40px; border-radius: 12px; border: 1px solid var(--mh--color--primary-100); }
 .reception-info__title-sub { font-size: 2.2rem; font-weight: 700; color: var(--mh--color--primary-800); margin-bottom: 25px; padding-bottom: 12px; border-bottom: 2px solid var(--mh--color--secondary-600); }
+@media (max-width: 1023px) {
+  .reception-info__title-sub { font-size: 1.8rem; }
+}
 .reception-info__table { width: 100%; border-collapse: collapse; }
 .reception-info__table th, .reception-info__table td { padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.05); text-align: left; font-size: 1.8rem; line-height: 1.7; }
 .reception-info__table td small { font-size: 1.8rem; color: inherit; display: inline-block; margin-top: 5px; }
@@ -37,6 +40,9 @@ add_action( 'wp_head', function () { ?>
 .reception-info__table th { width: 140px; color: var(--mh--color--primary-700); font-weight: 700; vertical-align: top; white-space: nowrap; }
 .inclusive-center-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
 .inclusive-center-area__title { font-size: 2.22rem; font-weight: 700; color: #3c699c; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #3c699c; padding-bottom: 12px; }
+@media (max-width: 767px) {
+  .inclusive-center-area__title { font-size: 1.8rem; }
+}
 .inclusive-center-item { margin-bottom: 25px; }
 .inclusive-center-item__name { font-size: 1.8rem; font-weight: 700; color: #244e6d; margin-bottom: 6px; display: block; }
 .inclusive-center-item__detail { font-size: 1.6rem; color: #555; line-height: 1.7; }
@@ -48,6 +54,9 @@ add_action( 'wp_head', function () { ?>
 .counter-card__body { flex: 1; }
 .counter-card__label { font-size: 1.5rem; font-weight: 700; color: var(--mh--color--primary-400); margin-bottom: 5px; display: block; letter-spacing: 0.05em; }
 .counter-card__name { font-size: 2.0rem; font-weight: 700; color: var(--mh--color--primary-800); margin-bottom: 15px; display: block; line-height: 1.4; }
+@media (max-width: 767px) {
+  .counter-card__name { font-size: 1.8rem; }
+}
 .counter-card__link { display: inline-flex; align-items: center; color: #3c699c; text-decoration: none; font-weight: 700; gap: 8px; font-size: 1.6rem; }
 .counter-card__link:hover { text-decoration: underline; }
 @media (max-width: 767px) {
@@ -79,12 +88,12 @@ add_action( 'wp_head', function () { ?>
 @media (max-width: 1023px) {
   .inclusive-center-grid, .counter-grid { grid-template-columns: 1fr; }
   .reception-info { padding: 25px 20px; }
+  .reception-info__title-sub { font-size: 1.8rem; }
   .reception-info__table th, .reception-info__table td { display: block; width: 100%; padding: 10px 0; }
-  .reception-info__table th { padding-bottom: 5px; color: var(--mh--color--primary-800); font-size: 1.7rem; border-bottom: none; }
-  .reception-info__table td { padding-top: 0; padding-bottom: 20px; font-size: 1.6rem; }
-  .reception-info__table td small { font-size: 1.5rem; }
+  .reception-info__table th { padding-bottom: 5px; color: var(--mh--color--primary-800); font-size: 1.6rem; border-bottom: none; }
+  .reception-info__table td { padding-top: 0; padding-bottom: 20px; font-size: 1.5rem; }
+  .reception-info__table td small { font-size: 1.4rem; }
   .reception-info__table tr:last-child td { padding-bottom: 0; border-bottom: none; }
-  .calendar-wrapper { grid-template-columns: 1fr; }
 
   /* 連絡先内の連結を、非常に狭い画面では縦に並べる */
   @media (max-width: 480px) {
@@ -95,7 +104,10 @@ add_action( 'wp_head', function () { ?>
     }
   }
 }
-.calendar-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.calendar-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 1280px) {
+  .calendar-wrapper { grid-template-columns: 1fr 1fr; }
+}
 .calendar-item { background: #fff; border: 1px solid var(--mh--color--primary-100); border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(60,105,156,0.07); }
 .calendar-item__title { font-size: 1.8rem; font-weight: 700; color: var(--mh--color--primary-700); margin: 0 0 16px; padding-bottom: 12px; border-bottom: 2px solid var(--mh--color--primary-100); }
 .calendar-item iframe { display: block; width: 100%; border-radius: 6px; }
@@ -246,11 +258,11 @@ get_header(); ?>
         <table class="reception-info__table">
           <tr>
             <th>受付曜日</th>
-            <td>月曜日 〜 金曜日<br><small>（土日・祝日・年末年始 12/29〜1/3 を除く）</small></td>
+            <td>月曜日 〜 金曜日<br><small>（土日祝・年末年始12/29〜1/3を除く）</small></td>
           </tr>
           <tr>
             <th>連絡先</th>
-            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-870-1070<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォームはこちら</a></span></td>
+            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-870-1070<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォーム</a></span></td>
           </tr>
           <tr>
             <th>受付時間</th>

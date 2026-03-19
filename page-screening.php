@@ -75,9 +75,7 @@ add_action( 'wp_head', function () { ?>
   }
 
   .dock-info-card__title {
-    font-size: 2.0rem;
-    line-height: 1.25;
-    margin-bottom: 14px;
+    font-size: 1.8rem;
   }
 
   .dock-info-rows {

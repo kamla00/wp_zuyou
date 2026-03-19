@@ -125,7 +125,7 @@ add_action( 'wp_head', function () { ?>
 .contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #fff; z-index: 2; }
 .contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: transparent transparent transparent #c6e0ec; z-index: 1; }
 .contact-balloon__text { font-size: 1.5rem; line-height: 1.6; color: var(--mh--color--primary-800); font-weight: 500; margin: 0; }
-.contact-intro__img { max-width: 240px; width: 100%; height: auto; }
+.contact-intro__img { max-width: 150px; width: 100%; height: auto; }
 @media (max-width: 767px) {
   .page-hero {
     height: auto;

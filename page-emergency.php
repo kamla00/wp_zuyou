@@ -24,6 +24,9 @@ add_action( 'wp_head', function () { ?>
 .medical-hours { max-width: 700px; margin-left: auto; margin-right: auto; }
 .reception-info { margin-top: 0; padding: 0; background: transparent; }
 .reception-info__title-sub { font-size: 2.2rem; font-weight: 700; color: var(--mh--color--primary-800); margin-bottom: 25px; padding-bottom: 12px; border-bottom: 2px solid var(--mh--color--secondary-600); display: flex; align-items: center; gap: 10px; }
+@media (max-width: 1023px) {
+  .reception-info__title-sub { font-size: 1.8rem; }
+}
 .reception-info__table { width: 100%; border-collapse: collapse; }
 .reception-info__table th, .reception-info__table td { padding: 15px; border-bottom: 1px solid var(--mh--color--primary-200); font-size: 1.7rem; text-align: left; }
 .reception-info__table th { width: 110px; font-weight: 700; color: var(--mh--color--primary-800); white-space: nowrap; }
