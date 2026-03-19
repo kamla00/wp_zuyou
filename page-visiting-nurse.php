@@ -117,32 +117,26 @@ add_action( 'wp_head', function () { ?>
   box-shadow: none !important;
 }
 @media (min-width: 1024px) {
-  /* ---- 2-column grid: 2 items per row ---- */
+  /* ---- 1-column: accordion解除、1カラム表示 ---- */
   .nurse-details .screening-service-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 60px 60px !important;
-    margin-top: 60px !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin-top: 40px !important;
   }
-  /* Stagger: right-column items drop down 140px */
-  .nurse-details .screening-service-list > .screening-service:nth-child(even) {
-    margin-top: 200px !important;
-  }
-  /* Each item: image on left (300px), title+text on right */
   .nurse-details .screening-service {
     display: grid !important;
-    grid-template-columns: 300px 1fr !important;
+    grid-template-columns: 200px 1fr !important;
     grid-template-rows: auto auto !important;
     grid-template-areas:
       "icon title"
       "icon content" !important;
     column-gap: 24px !important;
-    row-gap: 6px !important;
+    row-gap: 0 !important;
     align-items: start !important;
     align-content: center !important;
     border: none !important;
-    padding: 0 !important;
+    padding: 24px 0 !important;
     background: none !important;
     box-shadow: none !important;
     cursor: default !important;
@@ -152,10 +146,16 @@ add_action( 'wp_head', function () { ?>
     display: contents !important;
     pointer-events: none !important;
   }
+  .nurse-details .screening-service__head {
+    align-self: end !important;
+  }
+  .nurse-details .screening-service__content {
+    align-self: start !important;
+  }
   .nurse-details .screening-service__icon {
     grid-area: icon !important;
-    width: 300px !important;
-    height: 300px !important;
+    width: 200px !important;
+    height: 200px !important;
     border-radius: 62% 38% 46% 54% / 44% 58% 42% 56% !important;
     overflow: hidden !important;
     background: #f8fafc !important;
@@ -167,7 +167,7 @@ add_action( 'wp_head', function () { ?>
     font-size: 1.8rem !important;
     font-weight: 700 !important;
     margin: 0 !important;
-    padding-bottom: 12px !important;
+    padding-bottom: 6px !important;
     border-bottom: 2px solid var(--mh--color--primary-100) !important;
     width: 100% !important;
     writing-mode: horizontal-tb !important;
@@ -196,7 +196,34 @@ add_action( 'wp_head', function () { ?>
     color: #555 !important;
     writing-mode: horizontal-tb !important;
     white-space: normal !important;
-    padding-top: 8px !important;
+    padding-top: 4px !important;
+  }
+}
+@media (min-width: 1280px) {
+  /* ---- 2-column grid: 2 items per row ---- */
+  .nurse-details .screening-service-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 60px 60px !important;
+    margin-top: 60px !important;
+    align-items: start !important;
+  }
+  /* Stagger: right-column items drop down 200px */
+  .nurse-details .screening-service-list > .screening-service:nth-child(even) {
+    margin-top: 200px !important;
+  }
+  .nurse-details .screening-service {
+    grid-template-columns: 300px 1fr !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+    align-items: start !important;
+  }
+  .nurse-details .screening-service__icon {
+    width: 300px !important;
+    height: 300px !important;
+  }
+  .nurse-details .screening-service-list > .screening-service:last-child {
+    border-bottom: none !important;
   }
 }
 
