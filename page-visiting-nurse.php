@@ -204,7 +204,7 @@ add_action( 'wp_head', function () { ?>
   .nurse-details .screening-service-list {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 60px 60px !important;
+    gap: 0px 60px !important;
     margin-top: 60px !important;
     align-items: start !important;
   }
@@ -213,14 +213,14 @@ add_action( 'wp_head', function () { ?>
     margin-top: 200px !important;
   }
   .nurse-details .screening-service {
-    grid-template-columns: 300px 1fr !important;
+    grid-template-columns: 250px 1fr !important;
     border-bottom: none !important;
     padding: 0 !important;
     align-items: start !important;
   }
   .nurse-details .screening-service__icon {
-    width: 300px !important;
-    height: 300px !important;
+    width: 250px !important;
+    height: 250px !important;
   }
   .nurse-details .screening-service-list > .screening-service:last-child {
     border-bottom: none !important;
@@ -367,6 +367,25 @@ add_action( 'wp_head', function () { ?>
   #home-care, #contact-section {
     padding-top: 160px;
   }
+}
+
+.fbd__doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--mh--color--primary-500) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+.fbd__doc-link svg {
+  width: 1em;
+  height: 1em;
+}
+.fbd__doc-link:hover {
+  opacity: 0.5;
 }
 
 .reception-info {
@@ -583,6 +602,9 @@ get_header(); ?>
             <p>※かかりつけ医がいらっしゃらない場合は、ご相談下さい。</p>
           </div>
         </div>
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="" class="fbd__doc-link">訪問看護 運営規程<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        </div>
       </div>
     </div>
   </section>
@@ -706,11 +728,7 @@ get_header(); ?>
           </tr>
           <tr>
             <th>連絡先</th>
-            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-870-1070　FAX：046-871-6497<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォーム</a></span></td>
-          </tr>
-          <tr>
-            <th>訪問エリア</th>
-            <td>逗子市全域、葉山町全域</td>
+            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-871-7693　FAX：046-871-6497<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォーム</a></span></td>
           </tr>
           <tr>
             <th>事業所番号</th>

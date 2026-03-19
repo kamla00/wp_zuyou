@@ -643,11 +643,27 @@ body.admin-bar .l-header { top: 32px !important; }
 
 @media (min-width: 768px) {
   .footer-inner {
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
   }
 
   .footer-about {
     max-width: 340px;
+  }
+
+  .footer-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 }
 
