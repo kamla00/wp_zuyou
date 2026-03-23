@@ -291,12 +291,16 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffd966;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/健康診断.png" alt="健康診断"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/health-checkup.png" alt="健康診断"></div>
             </div>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">住民健診から人間ドックまで、高度な検査体制で健康をサポート</h4>
-            <p class="service-card__description">地域の一環とした健康管理を行うために住民健診、事業所（職域）健診、学校健診、人間ドック、進学・就職等の健康診断を行っています。<br><br><strong>お問い合わせ：046-873-7752</strong></p>
+            <p class="service-card__description">地域の一環とした健康管理を行うために住民健診、事業所（職域）健診、学校健診、人間ドック、進学・就職等の健康診断を行っています。</p>
+            <div class="service-card__tel">
+              <span class="service-card__tel-label">TEL</span>
+              <a href="tel:0468737752" class="service-card__tel-number">046-873-7752</a>
+            </div>
             <div class="service-card__more">
               <a href="<?php echo home_url('/screening/'); ?>" class="service-card__more-btn"><span>もっと見る</span></a>
               <a href="https://www.mrso.jp/mrs/zic/Plans/selectPlan" target="_blank" rel="noopener noreferrer" class="service-card__more-btn service-card__more-btn--reserve"><span>健診WEB予約</span></a>
@@ -314,7 +318,7 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffb3b3;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/急患診療.png" alt="急患診療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/emergency-care.png" alt="急患診療"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -336,12 +340,16 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #a2d2ff;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/訪問看護.jpg" alt="訪問看護"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/visiting-nurse.jpg" alt="訪問看護"></div>
             </div>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">訪問看護・居宅介護支援サービスを行っています。</h4>
             <p class="service-card__description">訪問看護事業として、訪問看護・居宅介護支援の2つのサービスを提供しております。介護保険サービスの利用については『どうやって利用すればいいの？』『どんなサービスが使えるの？』などなど、難しくて分からないことがたくさんあると思います。どうぞ、お気軽にご相談下さい。</p>
+            <div class="service-card__tel">
+              <span class="service-card__tel-label">TEL</span>
+              <a href="tel:0468717693" class="service-card__tel-number">046-871-7693</a>
+            </div>
             <div class="service-card__more">
               <a href="<?php echo home_url('/visiting-nurse/'); ?>" class="service-card__more-btn"><span>もっと見る</span></a>
             </div>
@@ -358,12 +366,16 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #b9e4c9;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/在宅医療.png" alt="在宅医療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/home-medical.png" alt="在宅医療"></div>
             </div>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">逗葉地域在宅医療・介護連携相談室</h4>
             <p class="service-card__description">逗葉地域在宅医療・介護連携相談室は、逗子市・葉山町の皆様が安心して在宅医療を行いながら生活を送れるよう支援する窓口です。専門の看護師が対応いたします。</p>
+            <div class="service-card__tel">
+              <span class="service-card__tel-label">TEL</span>
+              <a href="tel:0468701070" class="service-card__tel-number">046-870-1070</a>
+            </div>
             <div class="service-card__more">
               <a href="<?php echo home_url('/home-care/'); ?>" class="service-card__more-btn"><span>もっと見る</span></a>
             </div>

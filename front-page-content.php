@@ -132,7 +132,7 @@
         </div>
       </header>
       <div class="services-list">
-        <!-- サービスカード 01-04 -->
+        <!-- サービスカード 01 -->
         <article class="service-card fade-in">
           <div class="service-card__left">
             <div class="service-card__head">
@@ -141,16 +141,72 @@
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffd966;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/健康診断.png" alt="健康診断"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/health-checkup.png" alt="健康診断"></div>
             </div>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">健診事業</h4>
             <p class="service-card__description">住民健診から人間ドックまで、高度な検査体制で健康をサポートします。</p>
+            <p class="service-card__tel"><a href="tel:0468737752">046-873-7752</a></p>
             <div class="service-card__more"><a href="<?php echo home_url('/screening'); ?>" class="service-card__more-btn"><span>もっと見る</span></a></div>
           </div>
         </article>
-        <!-- 他のサービスカードも同様にWPパスに置換して追加 -->
+        <!-- サービスカード 02 -->
+        <article class="service-card fade-in">
+          <div class="service-card__left">
+            <div class="service-card__head">
+              <div class="service-card__number"><span>02</span></div>
+              <div class="service-card__title-group"><h3 class="service-card__title">急患診療</h3><p class="service-card__subtitle">Emergency Care</p></div>
+            </div>
+            <div class="service-card__illu-wrap">
+              <div class="service-card__illu-bg" style="background-color: #ffb3b3;"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/emergency-care.png" alt="急患診療"></div>
+            </div>
+          </div>
+          <div class="service-card__body">
+            <h4 class="service-card__main-lead">急患診療</h4>
+            <p class="service-card__description">夜間・休日の急な病気やけがに対応する急患診療を行っています。</p>
+            <div class="service-card__more"><a href="<?php echo home_url('/emergency'); ?>" class="service-card__more-btn"><span>もっと見る</span></a></div>
+          </div>
+        </article>
+        <!-- サービスカード 03 -->
+        <article class="service-card fade-in">
+          <div class="service-card__left">
+            <div class="service-card__head">
+              <div class="service-card__number"><span>03</span></div>
+              <div class="service-card__title-group"><h3 class="service-card__title">訪問看護</h3><p class="service-card__subtitle">Visiting Nurse</p></div>
+            </div>
+            <div class="service-card__illu-wrap">
+              <div class="service-card__illu-bg" style="background-color: #b3d9f7;"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/visiting-nurse.jpg" alt="訪問看護"></div>
+            </div>
+          </div>
+          <div class="service-card__body">
+            <h4 class="service-card__main-lead">訪問看護</h4>
+            <p class="service-card__description">経験豊富な看護師がご自宅を訪問し、療養生活をトータルでサポートします。</p>
+            <p class="service-card__tel"><a href="tel:0468717693">046-871-7693</a></p>
+            <div class="service-card__more"><a href="<?php echo home_url('/visiting-nurse'); ?>" class="service-card__more-btn"><span>もっと見る</span></a></div>
+          </div>
+        </article>
+        <!-- サービスカード 04 -->
+        <article class="service-card fade-in">
+          <div class="service-card__left">
+            <div class="service-card__head">
+              <div class="service-card__number"><span>04</span></div>
+              <div class="service-card__title-group"><h3 class="service-card__title">逗葉地域在宅医療<br>介護連携相談室</h3><p class="service-card__subtitle">Home Care</p></div>
+            </div>
+            <div class="service-card__illu-wrap">
+              <div class="service-card__illu-bg" style="background-color: #b3e0cc;"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/home-medical.png" alt="在宅医療"></div>
+            </div>
+          </div>
+          <div class="service-card__body">
+            <h4 class="service-card__main-lead">逗葉地域在宅医療<br>介護連携相談室</h4>
+            <p class="service-card__description">医療・介護の専門スタッフが連携し、安心して在宅療養できるよう支援します。</p>
+            <p class="service-card__tel"><a href="tel:0468701070">046-870-1070</a></p>
+            <div class="service-card__more"><a href="<?php echo home_url('/home-care'); ?>" class="service-card__more-btn"><span>もっと見る</span></a></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>

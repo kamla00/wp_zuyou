@@ -104,6 +104,13 @@ add_action( 'wp_head', function () { ?>
     }
   }
 }
+a.inclusive-center-item__name {
+  color: #244e6d;
+  transition: opacity 0.2s ease;
+}
+a.inclusive-center-item__name:hover {
+  opacity: 0.5;
+}
 .calendar-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; }
 @media (min-width: 1280px) {
   .calendar-wrapper { grid-template-columns: 1fr 1fr; }
@@ -289,33 +296,33 @@ get_header(); ?>
         <div class="inclusive-center-area">
           <h3 class="inclusive-center-area__title">包括支援センター（逗子市）</h3>
           <div class="inclusive-center-item">
-            <span class="inclusive-center-item__name">東部地域包括支援センター</span>
+            <a href="https://www.aoki-hospital.or.jp/sup/" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">東部地域包括支援センター</a>
             <span class="inclusive-center-item__detail">桜山3・4・5丁目（35〜37番、葉山団地を除く）、沼間、池子</span>
           </div>
           <div class="inclusive-center-item">
-            <span class="inclusive-center-item__name">中部地域包括支援センター</span>
+            <a href="https://zushi-shakyo.com/business/bus-008/" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">中部地域包括支援センター</a>
             <span class="inclusive-center-item__detail">逗子、桜山1・2・5丁目（35〜37番、葉山団地のみ）・6〜9丁目、山の根、新宿1〜3丁目、新宿4丁目1〜5番（2番29〜59番を除く）、新宿4丁目6番38〜42号、新宿5丁目</span>
           </div>
           <div class="inclusive-center-item">
-            <span class="inclusive-center-item__name">西部地域包括支援センター</span>
+            <a href="http://www.syonankinenhp.or.jp/departments/supportcenter" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">西部地域包括支援センター</a>
             <span class="inclusive-center-item__detail">久木、小坪、新宿4丁目2番29〜59号、新宿4丁目6番1〜16番（6番38〜42号を除く）</span>
           </div>
         </div>
         <div class="inclusive-center-area">
           <h3 class="inclusive-center-area__title">包括支援センター（葉山町）</h3>
           <div class="inclusive-center-item">
-            <span class="inclusive-center-item__name">葉山町地域包括支援センター</span>
+            <a href="https://www.hayamashakyo.com/projects/hokatu/" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">葉山町地域包括支援センター</a>
             <span class="inclusive-center-item__detail">堀内、長柄地区</span>
           </div>
           <div class="inclusive-center-item">
-            <span class="inclusive-center-item__name">葉山町地域包括支援センター清寿苑</span>
+            <a href="https://www.hakuou.or.jp/hayama/serv_home_care.php#localcenter" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">葉山町地域包括支援センター清寿苑</a>
             <span class="inclusive-center-item__detail">木古庭、上山口、下山口、一色地区</span>
           </div>
         </div>
       </div>
       <div class="counter-grid fade-in">
         <a href="https://www.city.zushi.kanagawa.jp/kenkofukushi/iryo/1004002/1004005.html" class="counter-card" target="_blank" rel="noopener noreferrer">
-          <div class="counter-card__icon"><img src="<?php echo $_t; ?>/images/逗子市.gif" alt="逗子市"></div>
+          <div class="counter-card__icon"><img src="<?php echo $_t; ?>/images/zushi-city.gif" alt="逗子市"></div>
           <div class="counter-card__body">
             <span class="counter-card__label">逗子市役所</span>
             <span class="counter-card__name">逗子市 在宅医療・介護連携</span>
@@ -326,7 +333,7 @@ get_header(); ?>
           </div>
         </a>
         <a href="https://www.town.hayama.lg.jp/soshiki/choumin/1/iryokikan/9490.html" class="counter-card" target="_blank" rel="noopener noreferrer">
-          <div class="counter-card__icon"><img src="<?php echo $_t; ?>/images/葉山町.png" alt="葉山町"></div>
+          <div class="counter-card__icon"><img src="<?php echo $_t; ?>/images/hayama-town.png" alt="葉山町"></div>
           <div class="counter-card__body">
             <span class="counter-card__label">葉山町役場</span>
             <span class="counter-card__name">葉山町 在宅医療・介護連携相談窓口</span>
@@ -342,11 +349,9 @@ get_header(); ?>
       <div id="facility-splide" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl.jpg" alt="院内の様子1"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl2.webp" alt="院内の様子2"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl3.jpg" alt="院内の様子3"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero.png" alt="院内の様子4"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero1.png" alt="院内の様子5"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi1.JPG" alt="院内の様子1"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi2.JPG" alt="院内の様子2"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi3.jpg" alt="院内の様子3"></div></li>
           </ul>
         </div>
       </div>

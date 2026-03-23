@@ -25,7 +25,7 @@ body.admin-bar .l-header { top: 32px !important; }
 .l-header { z-index: 200 !important; }
 
 /* コンテンツ幅を明示的に1400pxに固定（header.cssの1100pxによる上書きを防ぐ） */
-:root { --mh--contents--width: 1600px; }
+:root { --mh--contents--width: 1400px; }
 
 /* ヘッダーロゴのサイト名: 折り返しなし・文字サイズ縮小（デスクトップのみ） */
 @media (width >= 1280px) {
@@ -553,11 +553,28 @@ body.admin-bar .l-header { top: 32px !important; }
   }
 }
 
+/* 1280px以上: お知らせ50% / 急患診療50% に比率調整 */
+@media (min-width: 1280px) {
+  .news-left {
+    flex: 0 0 50% !important;
+  }
+  .news-right {
+    flex: 0 0 50% !important;
+  }
+}
+
 /* ヘッダー右端の紺色エリア: サンプルCSS準拠 (viewBox 1433幅・右端カーブ付き) */
 @media (width >= 1280px) {
   .l-header::after {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201433%20153%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M284.16%200H0C67.4002%207.9504%20130.098%2014.2587%20177.784%2031.5913C266.345%2063.7834%20273.981%2082.2075%20354.373%20112.037C428.676%20139.733%20574.499%20133.875%20646.782%20122.861C782.617%20102.154%20905.069%20115.962%201031.21%20142.556C1145.19%20164.275%201246.78%20150.136%201320%20118.415C1393.22%2086.69%201426%2097%201433%20100V0H284.16Z%22%20fill%3D%22%233C699C%22%2F%3E%3C%2Fsvg%3E");
   }
+}
+
+/* about-grid の最大幅を制限 */
+.about-grid {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .medical-hours-sp-break {
@@ -921,6 +938,20 @@ body.admin-bar .l-header { top: 32px !important; }
 @media (min-width: 1280px) {
   .l-nav-brand {
     display: none;
+  }
+}
+
+/* サービスカード: 電話番号 */
+.service-card__tel { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+.service-card__tel-label { font-size: 1.3rem; font-weight: 700; color: #fff; background: var(--mh--color--primary-400); padding: 3px 10px; border-radius: 4px; letter-spacing: 0.05em; white-space: nowrap; }
+.service-card__tel-number { font-size: 2.2rem; font-weight: 700; color: var(--mh--color--primary-800); text-decoration: none; font-family: 'Outfit', sans-serif; letter-spacing: 0.03em; transition: color var(--mh--duration) var(--mh--easing); }
+.service-card__tel-number:hover { color: var(--mh--color--secondary-600); }
+
+/* スライダー: スマホでは横長（16:9）に固定 */
+@media (max-width: 768px) {
+  .facility-slide img {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
   }
 }
 

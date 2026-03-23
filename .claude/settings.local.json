@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"検温.png\" \"temperature.png\")",
+      "Bash(mv \"足浴.png\" \"foot-bath.png\")",
+      "Bash(mv \"褥瘡予防.png\" \"bedsore.png\")",
+      "Bash(mv \"リハビリ.png\" \"rehabilitation.png\")",
+      "Bash(mv \"ターミナル.png\" \"terminal-care.png\")",
+      "Bash(sed -i 's|images/健康診断\\\\.png|images/health-checkup.png|g; s|images/急患診療\\\\.png|images/emergency-care.png|g; s|images/訪問看護\\\\.jpg|images/visiting-nurse.jpg|g; s|images/在宅医療\\\\.png|images/home-medical.png|g' front-page.php)",
+      "Bash(sed -i 's|images/健康診断\\\\.png|images/health-checkup.png|g' front-page-content.php)",
+      "Bash(sed -i 's|images/急患診療\\\\.png|images/emergency-care.png|g; s|images/外科\\\\.png|images/surgery.png|g; s|images/歯科\\\\.png|images/dental.png|g' page-emergency.php)",
+      "Bash(sed -i 's|images/逗子市\\\\.gif|images/zushi-city.gif|g; s|images/葉山町\\\\.png|images/hayama-town.png|g' page-home-care.php)",
+      "Bash(grep -rn --include=*.php images/[^x00-x7F] 'c:/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test/')"
+    ]
+  }
+}

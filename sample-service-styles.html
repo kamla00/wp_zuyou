@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タイトル装飾 バリエーション</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Zen Kaku Gothic New", "ヒラギノ角ゴ ProN W3", meiryo, sans-serif; font-size: 16px; background: #f0f4f8; color: #333; }
+
+.page { max-width: 920px; margin: 0 auto; padding: 60px 24px; }
+.pattern-block { background: #fff; border-radius: 16px; padding: 48px 40px; margin-bottom: 64px; box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+.pattern-label { display: inline-block; font-size: 0.82rem; font-weight: 700; color: #fff; background: #3c699c; border-radius: 4px; padding: 3px 12px; margin-bottom: 8px; }
+.pattern-title { font-size: 1.3rem; font-weight: 700; color: #244e6d; margin-bottom: 5px; }
+.pattern-desc { font-size: 0.88rem; color: #777; margin-bottom: 32px; }
+
+.service-list { list-style: none; display: flex; flex-direction: column; }
+.service-img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+
+/* ===== 共通ベース ===== */
+.base .service-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0 36px;
+  align-items: center;
+  padding: 28px 0;
+}
+.base .service-item + .service-item { border-top: 1px solid #e8f2fa; }
+.base .service-icon {
+  width: 120px; height: 120px;
+  border-radius: 62% 38% 46% 54% / 44% 58% 42% 56%;
+  overflow: hidden;
+  justify-self: center;
+  box-shadow: 0 5px 16px rgba(60,105,156,0.13);
+}
+.base .service-title {
+  font-size: 1.15rem; font-weight: 700; color: #244e6d;
+  margin-bottom: 8px;
+}
+.base .service-text { font-size: 0.93rem; line-height: 1.88; color: #555; }
+
+/* ============================================================
+   H-1：帯ハイライト（左から右へフェード）
+   ============================================================ */
+.h1 .service-title {
+  display: inline;
+  background: linear-gradient(90deg, #c2e0f5 0%, #daeefa 60%, transparent 100%);
+  padding: 3px 16px 3px 10px;
+  border-radius: 3px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   H-2：左ボーダー＋インデント
+   ============================================================ */
+.h2 .service-title {
+  border-left: 4px solid #4595c7;
+  padding-left: 12px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   H-3：下線（グラデーション）
+   ============================================================ */
+.h3 .service-title {
+  display: inline-block;
+  padding-bottom: 8px;
+  background-image: linear-gradient(90deg, #4595c7, #9dd0f0 60%, transparent 100%);
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+/* ============================================================
+   H-4：背景色の塗りつぶし（角丸タグ型）
+   ============================================================ */
+.h4 .service-title {
+  display: inline-block;
+  background: #daeef8;
+  padding: 5px 18px 5px 14px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   H-5：二重下線
+   ============================================================ */
+.h5 .service-title {
+  display: inline-block;
+  padding-bottom: 8px;
+  position: relative;
+}
+.h5 .service-title::before,
+.h5 .service-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 2px;
+}
+.h5 .service-title::before { bottom: 2px; height: 4px; background: #b8d8f0; }
+.h5 .service-title::after  { bottom: 0;  height: 2px; background: #4595c7; }
+
+/* ============================================================
+   H-6：マーカー風（テキスト下半分に色）
+   ============================================================ */
+.h6 .service-title {
+  display: inline;
+  background: linear-gradient(transparent 45%, #c8e8f8 45%);
+  line-height: 1.8;
+  padding: 0 2px;
+}
+
+/* ============================================================
+   H-7：左右にラインが伸びる（センター線）
+   ============================================================ */
+.h7 .service-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+.h7 .service-title::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #4595c7;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.h7 .service-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, #4595c7, transparent);
+}
+
+/* ============================================================
+   H-8：背景帯（平行四辺形）
+   ============================================================ */
+.h8 .service-title {
+  display: inline-block;
+  position: relative;
+  padding: 4px 20px 4px 12px;
+  color: #244e6d;
+  z-index: 0;
+}
+.h8 .service-title::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #cce5f7, #e4f3fc);
+  transform: skewX(-8deg);
+  border-radius: 4px;
+  z-index: -1;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1 style="font-size:1.4rem;color:#244e6d;margin-bottom:6px;">タイトル装飾 バリエーション</h1>
+  <p style="color:#777;font-size:0.88rem;margin-bottom:48px;">タイトルのみ装飾・本文はフラット</p>
+
+  <!-- H-1 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-1</p>
+    <h2 class="pattern-title">帯ハイライト（左→右フェード）</h2>
+    <p class="pattern-desc">タイトル全体に薄い水色の帯。右にいくほど透明になる。</p>
+    <div class="base h1"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-2 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-2</p>
+    <h2 class="pattern-title">左ボーダー＋インデント</h2>
+    <p class="pattern-desc">左に細い縦ラインを添えたシンプルで定番のスタイル。</p>
+    <div class="base h2"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-3 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-3</p>
+    <h2 class="pattern-title">グラデーション下線</h2>
+    <p class="pattern-desc">タイトル下にグラデーションの細いライン。すっきりしていて上品。</p>
+    <div class="base h3"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-4 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-4</p>
+    <h2 class="pattern-title">角丸タグ型</h2>
+    <p class="pattern-desc">タイトルをカプセル型の背景色で囲む。ラベルやタグのような見た目。</p>
+    <div class="base h4"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-5 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-5</p>
+    <h2 class="pattern-title">二重下線</h2>
+    <p class="pattern-desc">太さと色の異なる2本の下線。重厚感とアクセントを同時に演出。</p>
+    <div class="base h5"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-6 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-6</p>
+    <h2 class="pattern-title">マーカー風</h2>
+    <p class="pattern-desc">テキスト下半分に色が入るマーカーペン風。手書きの温かみを感じる。</p>
+    <div class="base h6"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-7 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-7</p>
+    <h2 class="pattern-title">ドット＋右に伸びるライン</h2>
+    <p class="pattern-desc">タイトル左に丸いドット、右にフェードアウトするライン。モダンですっきり。</p>
+    <div class="base h7"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+  <!-- H-8 -->
+  <div class="pattern-block">
+    <p class="pattern-label">H-8</p>
+    <h2 class="pattern-title">平行四辺形の背景帯</h2>
+    <p class="pattern-desc">タイトルの背後に斜めの帯が入る。動きがあって個性的。</p>
+    <div class="base h8"><ul class="service-list">
+      <li class="service-item"><div class="service-icon"><img src="images/temperature.png" alt="" class="service-img"></div><div><h3 class="service-title">全身状態の観察</h3><p class="service-text">疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/foot-bath.png" alt="" class="service-img"></div><div><h3 class="service-title">清拭等の清潔に関する援助</h3><p class="service-text">入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。</p></div></li>
+      <li class="service-item"><div class="service-icon"><img src="images/bedsore.png" alt="" class="service-img"></div><div><h3 class="service-title">褥瘡予防、処置</h3><p class="service-text">体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。</p></div></li>
+    </ul></div>
+  </div>
+
+</div>
+</body>
+</html>

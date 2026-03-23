@@ -26,33 +26,32 @@ add_action( 'wp_head', function () { ?>
 @media (max-width: 767px) {
   .nurse-sub-title { font-size: 1.8rem; }
 }
-.nurse-details .screening-service__icon {
-  background: #f8fafc;
-  width: 300px;
-  height: 300px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 62% 38% 46% 54% / 44% 58% 42% 56%;
-  box-shadow: 0 8px 20px rgba(60, 105, 156, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ===== デスクトップ: アコーディオン解除 + 吹き出しレイアウト ===== */
+@media (max-width: 1023px) {
+  .nurse-details .screening-service__bubble-title {
+    display: none !important;
+  }
 }
-.nurse-details .screening-service:hover .screening-service__icon {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(60, 105, 156, 0.15);
-}
-.nurse-details .screening-service__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-}
+
+/* ===== モバイル: 既存アコーディオンスタイルを維持 ===== */
 @media (max-width: 1023px) {
   .nurse-details .screening-service__icon {
+    background: #f8fafc;
     width: 60px;
     height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 62% 38% 46% 54% / 44% 58% 42% 56%;
+    box-shadow: 0 8px 20px rgba(60, 105, 156, 0.1);
+    overflow: hidden;
+  }
+  .nurse-details .screening-service__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
   }
 }
 .fbd { max-width: 660px; margin: 30px auto 0; }
@@ -117,43 +116,44 @@ add_action( 'wp_head', function () { ?>
   box-shadow: none !important;
 }
 @media (min-width: 1024px) {
-  /* ---- 1-column: accordion解除、1カラム表示 ---- */
+  /* ---- accordion解除、画像左・吹き出し右レイアウト ---- */
   .nurse-details .screening-service-list {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0 !important;
+    gap: 32px !important;
     margin-top: 40px !important;
   }
   .nurse-details .screening-service {
-    display: grid !important;
-    grid-template-columns: 200px 1fr !important;
-    grid-template-rows: auto auto !important;
-    grid-template-areas:
-      "icon title"
-      "icon content" !important;
-    column-gap: 24px !important;
-    row-gap: 0 !important;
-    align-items: start !important;
-    align-content: center !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 24px !important;
     border: none !important;
-    padding: 24px 0 !important;
+    padding: 0 !important;
     background: none !important;
     box-shadow: none !important;
     cursor: default !important;
-    writing-mode: horizontal-tb !important;
   }
   .nurse-details .screening-service-btn {
-    display: contents !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 200px !important;
+    flex-shrink: 0 !important;
     pointer-events: none !important;
+    cursor: default !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    gap: 0 !important;
   }
   .nurse-details .screening-service__head {
-    align-self: end !important;
+    display: none !important;
   }
-  .nurse-details .screening-service__content {
-    align-self: start !important;
+  .nurse-details .screening-service-trigger-icon {
+    display: none !important;
   }
   .nurse-details .screening-service__icon {
-    grid-area: icon !important;
     width: 200px !important;
     height: 200px !important;
     border-radius: 62% 38% 46% 54% / 44% 58% 42% 56% !important;
@@ -162,32 +162,47 @@ add_action( 'wp_head', function () { ?>
     box-shadow: 0 10px 30px rgba(60, 105, 156, 0.10) !important;
     flex-shrink: 0 !important;
   }
-  .nurse-details .screening-service__title {
-    grid-area: title !important;
-    font-size: 1.8rem !important;
-    font-weight: 700 !important;
-    margin: 0 !important;
-    padding-bottom: 6px !important;
-    border-bottom: 2px solid var(--mh--color--primary-100) !important;
-    width: 100% !important;
-    writing-mode: horizontal-tb !important;
-    white-space: normal !important;
-    line-height: 1.4 !important;
-    text-align: left !important;
-    color: var(--mh--color--primary-800) !important;
-  }
-  .nurse-details .screening-service-trigger-icon {
-    display: none !important;
-  }
   .nurse-details .screening-service__content {
-    grid-area: content !important;
+    flex: 1 !important;
     max-height: none !important;
-    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
     opacity: 1 !important;
     visibility: visible !important;
-    writing-mode: horizontal-tb !important;
+    padding: 0 !important;
     margin-top: 0 !important;
-    text-align: left !important;
+    display: block !important;
+  }
+  /* 吹き出し本体 */
+  .nurse-details .screening-service__bubble-wrap {
+    background: #eef4fb;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(60, 105, 156, 0.08);
+    position: relative;
+    padding: 16px 20px 20px;
+  }
+  .nurse-details .screening-service__bubble-wrap::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 22px;
+    border-width: 10px 12px 10px 0;
+    border-style: solid;
+    border-color: transparent #eef4fb transparent transparent;
+    pointer-events: none;
+  }
+  /* 吹き出し内タイトル */
+  .nurse-details .screening-service__bubble-title {
+    display: block !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: var(--mh--color--primary-800) !important;
+    margin: 0 0 10px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid var(--mh--color--primary-200) !important;
+    line-height: 1.4 !important;
+    writing-mode: horizontal-tb !important;
+    white-space: normal !important;
   }
   .nurse-details .screening-service__inner {
     padding: 0 !important;
@@ -196,7 +211,9 @@ add_action( 'wp_head', function () { ?>
     color: #555 !important;
     writing-mode: horizontal-tb !important;
     white-space: normal !important;
-    padding-top: 4px !important;
+  }
+  .nurse-details .screening-service__inner p {
+    margin: 0 !important;
   }
 }
 @media (min-width: 1280px) {
@@ -204,26 +221,19 @@ add_action( 'wp_head', function () { ?>
   .nurse-details .screening-service-list {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 0px 60px !important;
+    gap: 8px 60px !important;
     margin-top: 60px !important;
     align-items: start !important;
   }
-  /* Stagger: right-column items drop down 200px */
   .nurse-details .screening-service-list > .screening-service:nth-child(even) {
-    margin-top: 200px !important;
+    margin-top: 120px !important;
   }
-  .nurse-details .screening-service {
-    grid-template-columns: 250px 1fr !important;
-    border-bottom: none !important;
-    padding: 0 !important;
-    align-items: start !important;
+  .nurse-details .screening-service-btn {
+    width: 250px !important;
   }
   .nurse-details .screening-service__icon {
     width: 250px !important;
     height: 250px !important;
-  }
-  .nurse-details .screening-service-list > .screening-service:last-child {
-    border-bottom: none !important;
   }
 }
 
@@ -476,50 +486,50 @@ get_header(); ?>
             [
               'title' => '全身状態の観察',
               'desc'  => '疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。',
-              'img'   => '検温.png'
+              'img'   => 'temperature.png'
             ],
             [
               'title' => '清拭等の清潔に関する援助',
               'desc'  => '入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。',
-              'img'   => '足浴.png'
+              'img'   => 'foot-bath.png'
             ],
             [
               'title' => '褥瘡予防、処置',
               'desc'  => '体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。',
-              'img'   => '褥瘡予防.png'
+              'img'   => 'bedsore.png'
             ],
             [
               'title' => 'リハビリテーション',
               'desc'  => 'ADL（日常生活動作）の維持・回復、呼吸リハビリ、嚥下訓練等をご自宅で行います。',
-              'img'   => 'リハビリ.png'
+              'img'   => 'rehabilitation.png'
             ],
             [
               'title' => 'ターミナルケア',
               'desc'  => 'ご自宅で最期までその人らしく過ごせるよう、痛み緩和や精神的なケアをサポートします。',
-              'img'   => 'ターミナル.png'
+              'img'   => 'terminal-care.png'
             ],
             [
               'title' => '認知症患者の看護',
               'desc'  => '生活リズムの調整や事故防止のアドバイスを行い、認知症の方への適切な対応を支援します。',
-              'img'   => '認知症予防.jpeg'
+              'img'   => 'dementia.jpeg'
             ],
             [
               'title' => '療養生活指導、栄養指導',
               'desc'  => '食事や服薬、排泄等の介助や指導を行い、安全で適切な療養環境を整えます。',
-              'img'   => '服薬.png'
+              'img'   => 'medication.png'
             ],
             [
               'title' => '医師の指示による医療処置',
               'desc'  => '点滴、カテーテル管理、インスリン注射、吸引、在宅酸素の管理等の医療処置を行います。',
-              'img'   => '点滴.png'
+              'img'   => 'infusion.png'
             ],
             [
               'title' => 'その他、ご相談に応じます',
               'desc'  => '介護に関するお悩みや、制度の利用方法等、どんなことでもお気軽にご相談ください。',
-              'img'   => '電話.png'
+              'img'   => 'phone.png'
             ],
           ];
-          foreach ($nurse_services as $service) : 
+          foreach ($nurse_services as $service) :
           ?>
           <div class="screening-service js-accordion">
             <button class="screening-service-btn js-accordion-trigger" type="button">
@@ -534,8 +544,11 @@ get_header(); ?>
               </span>
             </button>
             <div class="screening-service__content js-accordion-content" style="writing-mode: horizontal-tb !important;">
-              <div class="screening-service__inner" style="writing-mode: horizontal-tb !important;">
-                <p><?php echo esc_html($service['desc']); ?></p>
+              <div class="screening-service__bubble-wrap">
+                <h4 class="screening-service__bubble-title"><?php echo esc_html($service['title']); ?></h4>
+                <div class="screening-service__inner" style="writing-mode: horizontal-tb !important;">
+                  <p><?php echo esc_html($service['desc']); ?></p>
+                </div>
               </div>
             </div>
           </div>
@@ -595,7 +608,7 @@ get_header(); ?>
         <div class="fbd__notes">
           <div class="fbd__notes-illu">
             <div class="fbd__notes-illu-bg" style="background-color: var(--mh--color--primary-400);"></div>
-            <img src="<?php echo $_t; ?>/images/訪問看護.jpg" alt="" class="fbd__notes-img">
+            <img src="<?php echo $_t; ?>/images/visiting-nurse.jpg" alt="" class="fbd__notes-img">
           </div>
           <div class="fbd__notes-body">
             <p>※居宅介護支援事業所を併設しておりますので、ご相談下さい。</p>
@@ -669,7 +682,7 @@ get_header(); ?>
         <div class="fbd__notes">
           <div class="fbd__notes-illu">
             <div class="fbd__notes-illu-bg" style="background-color: var(--mh--color--secondary-500);"></div>
-            <img src="<?php echo $_t; ?>/images/居宅.png" alt="" class="fbd__notes-img">
+            <img src="<?php echo $_t; ?>/images/home-support.png" alt="" class="fbd__notes-img">
           </div>
           <div class="fbd__notes-body">
             <p>※サービスの提供が開始された後でも、必要に応じてサービス計画の見直しを致しますので、お気軽にご相談下さい。</p>
@@ -720,7 +733,7 @@ get_header(); ?>
         <table class="reception-info__table">
           <tr>
             <th>住所</th>
-            <td>〒249-0003逗子市池子字桟敷戸1892-6</td>
+            <td>〒249-0003　逗子市池子字桟敷戸1892-6</td>
           </tr>
           <tr>
             <th>営業時間</th>

@@ -22,7 +22,7 @@
 
   --mh--contents--width: 1400px;
   --mh--contents--wide-width: 1400px;
-  --mh--contents--max-width: 1680px;
+  --mh--contents--max-width: 1440px;
   --mh--contents--padding--side: 20px;
   --mh--contents--width-with-padding: calc(var(--mh--contents--width) + var(--mh--contents--padding--side) * 2);
 
