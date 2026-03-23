@@ -134,7 +134,7 @@ get_header(); ?>
         <p class="page-hero__label">Home Care</p>
         <div class="page-hero__container">
           <h1 class="page-hero__title">在宅医療</h1>
-          <p class="page-hero__sub">逗葉地域在宅医療・介護連携相談室は、逗子市・葉山町の皆様が安心して在宅医療を行いながら生活を送れるよう支援する窓口です。専門の看護師が対応いたします。</p>
+          <p class="page-hero__sub">逗葉地域在宅医療・介護連携相談室は、逗子市・葉山町の皆様が安心して在宅医療を受けながら生活を送れるよう支援する窓口です。専門の看護師が対応いたします。</p>
         </div>
       </div>
     </div>
@@ -294,7 +294,7 @@ get_header(); ?>
       </header>
       <div class="inclusive-center-grid fade-in">
         <div class="inclusive-center-area">
-          <h3 class="inclusive-center-area__title">包括支援センター（逗子市）</h3>
+          <h3 class="inclusive-center-area__title">地域包括支援センター（逗子市）</h3>
           <div class="inclusive-center-item">
             <a href="https://www.aoki-hospital.or.jp/sup/" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">東部地域包括支援センター</a>
             <span class="inclusive-center-item__detail">桜山3・4・5丁目（35〜37番、葉山団地を除く）、沼間、池子</span>
@@ -309,7 +309,7 @@ get_header(); ?>
           </div>
         </div>
         <div class="inclusive-center-area">
-          <h3 class="inclusive-center-area__title">包括支援センター（葉山町）</h3>
+          <h3 class="inclusive-center-area__title">地域包括支援センター（葉山町）</h3>
           <div class="inclusive-center-item">
             <a href="https://www.hayamashakyo.com/projects/hokatu/" class="inclusive-center-item__name" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; text-underline-offset: 3px;">葉山町地域包括支援センター</a>
             <span class="inclusive-center-item__detail">堀内、長柄地区</span>
