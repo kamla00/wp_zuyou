@@ -349,9 +349,9 @@ get_header(); ?>
       <div id="facility-splide" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi1.JPG" alt="院内の様子1"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi2.JPG" alt="院内の様子2"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi3.jpg" alt="院内の様子3"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi1.webp" alt="院内の様子1"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi2.webp" alt="院内の様子2"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/zi3.webp" alt="院内の様子3"></div></li>
           </ul>
         </div>
       </div>

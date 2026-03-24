@@ -44,9 +44,9 @@
     
     <div class="hero-bg">
       <div class="hero-bg__inner">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/hero.png" alt="逗葉地域医療センター 玄関1">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/hero1.png" alt="逗葉地域医療センター 玄関2">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/hero2.jpg" alt="逗葉地域医療センター 玄関3">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/hero.webp" alt="逗葉地域医療センター 玄関1">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/hero1.webp" alt="逗葉地域医療センター 玄関2">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/hero2.webp" alt="逗葉地域医療センター 玄関3">
       </div>
     </div>
 
@@ -98,15 +98,15 @@
                     <thead>
                       <tr>
                         <th colspan="2">診療時間</th>
-                        <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日・祝</th>
+                        <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日・祝</th><th>年末<br>年始</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr><td rowspan="2" class="td-subject">内科（小児科）</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td></tr>
-                      <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-                      <tr><td rowspan="2" class="td-subject">外科</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td></tr>
-                      <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-                      <tr><td class="td-subject">歯科</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td></tr>
+                      <tr><td rowspan="2" class="td-subject">内科（小児科）</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
+                      <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+                      <tr><td rowspan="2" class="td-subject">外科</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
+                      <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+                      <tr><td class="td-subject">歯科</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -141,7 +141,7 @@
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffd966;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/health-checkup.png" alt="健康診断"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/health-checkup.webp" alt="健康診断"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -160,7 +160,7 @@
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffb3b3;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/emergency-care.png" alt="急患診療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/emergency-care.webp" alt="急患診療"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -178,7 +178,7 @@
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #b3d9f7;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/visiting-nurse.jpg" alt="訪問看護"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/visiting-nurse.webp" alt="訪問看護"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -197,7 +197,7 @@
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #b3e0cc;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/home-medical.png" alt="在宅医療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo get_template_directory_uri(); ?>/images/home-medical.webp" alt="在宅医療"></div>
             </div>
           </div>
           <div class="service-card__body">

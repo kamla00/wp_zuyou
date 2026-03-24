@@ -203,7 +203,7 @@ get_header(); ?>
           <div class="contact-balloon">
             <p class="contact-balloon__text">担当者からの返信に若干お時間をいただく場合があります。お急ぎの場合は電話にてご確認ください。</p>
           </div>
-          <img src="<?php echo esc_url( $_t ); ?>/images/fm4-no-bg.png" alt="" class="contact-intro__img">
+          <img src="<?php echo esc_url( $_t ); ?>/images/fm4-no-bg.webp" alt="" class="contact-intro__img">
         </div>
 
         <?php if ( ! empty( $errors ) ) : ?>

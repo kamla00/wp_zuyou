@@ -486,47 +486,47 @@ get_header(); ?>
             [
               'title' => '全身状態の観察',
               'desc'  => '疾病の状態や身体状況、心身の健康状態、血圧、体温、脈拍等のチェックを行い、異常の早期発見に努めます。',
-              'img'   => 'temperature.png'
+              'img'   => 'temperature.webp'
             ],
             [
               'title' => '清拭等の清潔に関する援助',
               'desc'  => '入浴介助や清拭、洗髪、足浴、口腔ケア等を行い、身体の清潔を維持・向上させます。',
-              'img'   => 'foot-bath.png'
+              'img'   => 'foot-bath.webp'
             ],
             [
               'title' => '褥瘡予防、処置',
               'desc'  => '体位変換やマッサージ、患部の処置等を行い、床ずれの予防や早期治癒を支援します。',
-              'img'   => 'bedsore.png'
+              'img'   => 'bedsore.webp'
             ],
             [
               'title' => 'リハビリテーション',
               'desc'  => 'ADL（日常生活動作）の維持・回復、呼吸リハビリ、嚥下訓練等をご自宅で行います。',
-              'img'   => 'rehabilitation.png'
+              'img'   => 'rehabilitation.webp'
             ],
             [
               'title' => 'ターミナルケア',
               'desc'  => 'ご自宅で最期までその人らしく過ごせるよう、痛み緩和や精神的なケアをサポートします。',
-              'img'   => 'terminal-care.png'
+              'img'   => 'terminal-care.webp'
             ],
             [
               'title' => '認知症患者の看護',
               'desc'  => '生活リズムの調整や事故防止のアドバイスを行い、認知症の方への適切な対応を支援します。',
-              'img'   => 'dementia.jpeg'
+              'img'   => 'dementia.webp'
             ],
             [
               'title' => '療養生活指導、栄養指導',
               'desc'  => '食事や服薬、排泄等の介助や指導を行い、安全で適切な療養環境を整えます。',
-              'img'   => 'medication.png'
+              'img'   => 'medication.webp'
             ],
             [
               'title' => '医師の指示による医療処置',
               'desc'  => '点滴、カテーテル管理、インスリン注射、吸引、在宅酸素の管理等の医療処置を行います。',
-              'img'   => 'infusion.png'
+              'img'   => 'infusion.webp'
             ],
             [
               'title' => 'その他、ご相談に応じます',
               'desc'  => '介護に関するお悩みや、制度の利用方法等、どんなことでもお気軽にご相談ください。',
-              'img'   => 'phone.png'
+              'img'   => 'phone.webp'
             ],
           ];
           foreach ($nurse_services as $service) :
@@ -608,7 +608,7 @@ get_header(); ?>
         <div class="fbd__notes">
           <div class="fbd__notes-illu">
             <div class="fbd__notes-illu-bg" style="background-color: var(--mh--color--primary-400);"></div>
-            <img src="<?php echo $_t; ?>/images/visiting-nurse.jpg" alt="" class="fbd__notes-img">
+            <img src="<?php echo $_t; ?>/images/visiting-nurse.webp" alt="" class="fbd__notes-img">
           </div>
           <div class="fbd__notes-body">
             <p>※居宅介護支援事業所を併設しておりますので、ご相談下さい。</p>
@@ -682,7 +682,7 @@ get_header(); ?>
         <div class="fbd__notes">
           <div class="fbd__notes-illu">
             <div class="fbd__notes-illu-bg" style="background-color: var(--mh--color--secondary-500);"></div>
-            <img src="<?php echo $_t; ?>/images/home-support.png" alt="" class="fbd__notes-img">
+            <img src="<?php echo $_t; ?>/images/home-support.webp" alt="" class="fbd__notes-img">
           </div>
           <div class="fbd__notes-body">
             <p>※サービスの提供が開始された後でも、必要に応じてサービス計画の見直しを致しますので、お気軽にご相談下さい。</p>

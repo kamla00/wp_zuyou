@@ -209,7 +209,7 @@ get_header(); ?>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffd966;"></div>
               <div class="service-card__illu-content">
-                <img src="<?php echo $_t; ?>/images/emergency-care.png" alt="内科（小児科）">
+                <img src="<?php echo $_t; ?>/images/emergency-care.webp" alt="内科（小児科）">
               </div>
             </div>
           </div>
@@ -234,7 +234,7 @@ get_header(); ?>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffb3b3;"></div>
               <div class="service-card__illu-content">
-                <img src="<?php echo $_t; ?>/images/surgery.png" alt="外科">
+                <img src="<?php echo $_t; ?>/images/surgery.webp" alt="外科">
               </div>
             </div>
           </div>
@@ -259,7 +259,7 @@ get_header(); ?>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #a2d2ff;"></div>
               <div class="service-card__illu-content">
-                <img src="<?php echo $_t; ?>/images/dental.png" alt="歯科">
+                <img src="<?php echo $_t; ?>/images/dental.webp" alt="歯科">
               </div>
             </div>
           </div>

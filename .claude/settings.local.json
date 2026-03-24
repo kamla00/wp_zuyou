@@ -10,7 +10,26 @@
       "Bash(sed -i 's|images/健康診断\\\\.png|images/health-checkup.png|g' front-page-content.php)",
       "Bash(sed -i 's|images/急患診療\\\\.png|images/emergency-care.png|g; s|images/外科\\\\.png|images/surgery.png|g; s|images/歯科\\\\.png|images/dental.png|g' page-emergency.php)",
       "Bash(sed -i 's|images/逗子市\\\\.gif|images/zushi-city.gif|g; s|images/葉山町\\\\.png|images/hayama-town.png|g' page-home-care.php)",
-      "Bash(grep -rn --include=*.php images/[^x00-x7F] 'c:/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test/')"
+      "Bash(grep -rn --include=*.php images/[^x00-x7F] 'c:/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test/')",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://www.mrso.jp/mrs/zic/Plans/selectPlan\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://drive.google.com/drive/folders/1hNSM9JjMQ-VXMUX-odZhR69emZbxu4UO?usp=sharing\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://zushi-shakyo.com/business/bus-008/\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"http://www.syonankinenhp.or.jp/departments/supportcenter\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://www.hayamashakyo.com/projects/hokatu/\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://www.hakuou.or.jp/hayama/serv_home_care.php#localcenter\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://www.city.zushi.kanagawa.jp/kenkofukushi/iryo/1004002/1004005.html\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code}\" --max-time 10 -L \"https://www.town.hayama.lg.jp/soshiki/choumin/1/iryokikan/9490.html\")",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(php -l \"$f\")",
+      "Bash(done)",
+      "Bash(PHP=\"/c/Users/nakamura/AppData/Roaming/Local/lightning-services/php-8.2.23+0/bin/win64/php.exe\")",
+      "Bash(THEME=\"c:/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test\")",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Bash(\"$PHP\" -l \"$THEME/$f\")",
+      "Bash('THEME=c:/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test' echo '=== Image references ===' grep -hEo \"images/[^\"\"\"\"'''' >]+\" $THEME/front-page.php $THEME/front-page-content.php $THEME/page-home-care.php $THEME/page-visiting-nurse.php $THEME/page-emergency.php)",
+      "Read(//c/Users/nakamura/Local Sites/wp/app/public/wp-content/themes/wp_zuyou_test/**)"
     ]
   }
 }

@@ -186,9 +186,9 @@ get_header(); ?>
     </div>
     <div class="hero-bg">
       <div class="hero-bg__inner">
-        <img src="<?php echo $_t; ?>/images/hero.png" alt="逗葉地域医療センター 玄関1">
-        <img src="<?php echo $_t; ?>/images/hero1.png" alt="逗葉地域医療センター 玄関2">
-        <img src="<?php echo $_t; ?>/images/hero2.jpg" alt="逗葉地域医療センター 玄関3">
+        <img src="<?php echo $_t; ?>/images/hero.webp" alt="逗葉地域医療センター 玄関1">
+        <img src="<?php echo $_t; ?>/images/hero1.webp" alt="逗葉地域医療センター 玄関2">
+        <img src="<?php echo $_t; ?>/images/hero2.webp" alt="逗葉地域医療センター 玄関3">
       </div>
     </div>
     <a href="#news" class="hero-scroll">
@@ -229,32 +229,32 @@ get_header(); ?>
                   <tr>
                     <th colspan="2">診療時間</th>
                     <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
-                    <th>日・祝 /<br class="medical-hours-sp-break">年末年始</th>
+                    <th>日・祝</th><th>年末年始</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">（小児科）</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td>20:00~<br class="medical-hours-sp-break">23:00</td>
-                    <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
+                    <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td rowspan="2" class="td-subject">外科</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td>20:00~<br class="medical-hours-sp-break">23:00</td>
-                    <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
+                    <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td class="td-subject">歯科</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
                   </tr>
                 </tbody>
               </table>
@@ -291,7 +291,7 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffd966;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/health-checkup.png" alt="健康診断"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/health-checkup.webp" alt="健康診断"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -318,7 +318,7 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #ffb3b3;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/emergency-care.png" alt="急患診療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/emergency-care.webp" alt="急患診療"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -340,7 +340,7 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #a2d2ff;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/visiting-nurse.jpg" alt="訪問看護"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/visiting-nurse.webp" alt="訪問看護"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -366,7 +366,7 @@ get_header(); ?>
             </div>
             <div class="service-card__illu-wrap">
               <div class="service-card__illu-bg" style="background-color: #b9e4c9;"></div>
-              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/home-medical.png" alt="在宅医療"></div>
+              <div class="service-card__illu-content"><img src="<?php echo $_t; ?>/images/home-medical.webp" alt="在宅医療"></div>
             </div>
           </div>
           <div class="service-card__body">
@@ -399,7 +399,7 @@ get_header(); ?>
         </div>
       </header>
       <div class="about-intro fade-in">
-        <div class="about-intro__image"><img src="<?php echo $_t; ?>/images/hero1.png" alt="施設外観"></div>
+        <div class="about-intro__image"><img src="<?php echo $_t; ?>/images/hero1.webp" alt="施設外観"></div>
         <div class="about-intro__content">
           <p class="about-intro__text">逗子市および葉山町が行う地域医療対策の円滑な推進を図るため、一般社団法人逗葉医師会、一般社団法人逗葉歯科医師会、逗葉薬剤師会の協力の下に急患診療事業、特定健診事業、介護予防検診事業および訪問看護事業を行い、もって逗子市民及び葉山町民の健康保持増進と福祉の向上に寄与することを目的としています。</p>
         </div>
@@ -469,11 +469,11 @@ get_header(); ?>
       <div id="facility-splide" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl.jpg" alt="院内の様子1"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl.webp" alt="院内の様子1"></div></li>
             <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl2.webp" alt="院内の様子2"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl3.jpg" alt="院内の様子3"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero.png" alt="院内の様子4"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero1.png" alt="院内の様子5"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl3.webp" alt="院内の様子3"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero.webp" alt="院内の様子4"></div></li>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero1.webp" alt="院内の様子5"></div></li>
           </ul>
         </div>
       </div>

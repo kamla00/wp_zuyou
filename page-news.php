@@ -163,7 +163,7 @@ get_header(); ?>
         <div class="contact-balloon">
           <p class="contact-balloon__text">各部署ごとの最新のお知らせを確認しましょう。</p>
         </div>
-        <img src="<?php echo $_t; ?>/images/fm4-no-bg.png" alt="" class="contact-intro__img">
+        <img src="<?php echo $_t; ?>/images/fm4-no-bg.webp" alt="" class="contact-intro__img">
       </div>
       <div class="news-filter-row">
         <div class="news-filter">

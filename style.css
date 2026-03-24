@@ -336,18 +336,19 @@ body.admin-bar .l-header { top: 32px !important; }
   }
   .medical-hours__table th,
   .medical-hours__table td {
-    padding: 8px 2px !important;
+    padding: 8px 1px !important;
     font-size: 1.0rem !important;
   }
   .medical-hours__table th {
     font-size: 0.95rem !important;
   }
   .medical-hours__table .td-subject {
-    width: 78px !important;
+    width: 65px !important;
     font-size: 1.0rem !important;
   }
-  .medical-hours__table tbody td:nth-child(2) {
-    width: 62px !important;
+  .medical-hours__table tbody td:nth-child(2),
+  .medical-hours__table tbody td:nth-child(1):not(.td-subject) {
+    width: 34px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -355,13 +356,13 @@ body.admin-bar .l-header { top: 32px !important; }
   .medical-hours__table tbody td:nth-child(n+3):nth-child(-n+8) {
     width: 24px !important;
   }
-  .medical-hours__table thead th:last-child,
-  .medical-hours__table tbody td:last-child {
+  .medical-hours__table thead th:nth-child(8),
+  .medical-hours__table tbody td:nth-child(9) {
     width: 40px !important;
   }
-  .medical-hours__table thead th:last-child {
-    font-size: 0.82rem !important;
-    line-height: 1.2 !important;
+  .medical-hours__table thead th:last-child,
+  .medical-hours__table tbody td:last-child {
+    width: 50px !important;
   }
   .medical-hours__note {
     font-size: 1.3rem !important;
