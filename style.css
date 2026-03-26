@@ -10,18 +10,18 @@ Text Domain: wp_zuyou
 
 /* ==================================================
    WordPress Compatibility Overrides
-   mock/header.css and mock/style.css handle the primary styles.
+   main.css handles the primary styles.
    This file only covers WP-specific overrides.
    ================================================== */
 
-/* html font-size base: 68.75% → 1rem = 11px (mock/style.css と同一の基準値を強制) */
+/* html font-size base: 68.75% → 1rem = 11px (main.css と同一の基準値を強制) */
 /* WordPress コアCSSのリセットによる上書きを防ぐためここで再定義する */
 html { font-size: 68.75% !important; }
 
 /* Admin bar compensation */
 body.admin-bar .l-header { top: 32px !important; }
 
-/* ヘッダーを波状区切り（z-index: 2）・ページタブナビ（z-index: 80）より必ず前面に（mock/style.css の l-header: 100 に対するWP側の安全マージン） */
+/* ヘッダーを波状区切り（z-index: 2）・ページタブナビ（z-index: 80）より必ず前面に（main.css の l-header: 100 に対するWP側の安全マージン） */
 .l-header { z-index: 200 !important; }
 
 /* コンテンツ幅を明示的に1400pxに固定（header.cssの1100pxによる上書きを防ぐ） */

@@ -27,7 +27,7 @@
       <h1 class="l-header-logo">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="l-header-logo__link u-alpha">
           <div class="l-header-logo__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/mock/mock/images/ch-no-bg.png" alt="<?php bloginfo( 'name' ); ?>" class="logo-image">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/ch-no-bg.png" alt="<?php bloginfo( 'name' ); ?>" class="logo-image">
           </div>
           <div class="l-header-logo__titles">
             <span class="l-header-logo__txt u-text-x4s u-tracking-md">公益財団法人</span>
@@ -43,7 +43,7 @@
         <div class="l-nav-brand">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="l-header-logo__link u-alpha">
             <div class="l-header-logo__img">
-              <img src="<?php echo get_template_directory_uri(); ?>/mock/mock/images/ch-no-bg.png" alt="<?php bloginfo( 'name' ); ?>" class="logo-image">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/ch-no-bg.png" alt="<?php bloginfo( 'name' ); ?>" class="logo-image">
             </div>
             <div class="l-header-logo__titles">
               <span class="l-header-logo__txt u-text-x4s u-tracking-md">公益財団法人</span>

@@ -7,7 +7,10 @@
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+// scroll-behavior: smooth を一時的に無効にして即座にトップへ
+document.documentElement.style.scrollBehavior = 'auto';
 window.scrollTo(0, 0);
+document.documentElement.style.scrollBehavior = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   // _includes.js 経由でコンポーネント読み込み後に呼ばれる場合と
@@ -24,6 +27,7 @@ window.pageInit = function () {
 function initAll() {
   // Initialize all components
   initPageEntrance();
+  initHeroSlideshow();
   initHeaderScroll();
   initMobileMenu();
   initScrollFade();
@@ -32,6 +36,23 @@ function initAll() {
   initHeroInfo();
   initNewsAccordion();
   initPageTop();
+}
+
+/**
+ * Hero Slideshow
+ */
+function initHeroSlideshow() {
+  const imgs = document.querySelectorAll('.hero-bg__inner img');
+  if (imgs.length < 2) return;
+
+  let current = 0;
+  imgs[current].classList.add('is-active');
+
+  setInterval(() => {
+    imgs[current].classList.remove('is-active');
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add('is-active');
+  }, 4000);
 }
 
 /**
@@ -304,23 +325,40 @@ function initMobileMenu() {
   
   if (!navBtn || !nav) return;
 
-  navBtn.addEventListener('click', () => {
-    navBtn.classList.toggle('is-open');
-    nav.classList.toggle('is-open');
-    
+  const closeMenu = () => {
+    navBtn.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  const openMenu = () => {
+    navBtn.classList.add('is-open');
+    nav.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  navBtn.addEventListener('click', event => {
+    event.stopPropagation();
+
     if (nav.classList.contains('is-open')) {
-        document.body.style.overflow = 'hidden';
+      closeMenu();
     } else {
-        document.body.style.overflow = '';
+      openMenu();
     }
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains('is-open')) return;
+
+    if (event.target.closest('.l-nav-btn')) return;
+
+    closeMenu();
   });
   
   // Close when clicking links
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        navBtn.classList.remove('is-open');
-        nav.classList.remove('is-open');
-        document.body.style.overflow = '';
+        closeMenu();
     });
   });
 }

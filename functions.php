@@ -41,13 +41,11 @@ function wp_zuyou_scripts() {
     wp_enqueue_style( 'wp_zuyou-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap', array(), null );
     wp_enqueue_style( 'splide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css', array(), '4.1.4' );
     
-    // Correct absolute paths for CSS files
-    // mock/mock/style.css に header.css の全スタイルが含まれているため header.css は不要
-    wp_enqueue_style( 'wp_zuyou-custom-style', get_template_directory_uri() . '/mock/mock/style.css', array(), filemtime( get_template_directory() . '/mock/mock/style.css' ) );
+    wp_enqueue_style( 'wp_zuyou-custom-style', get_template_directory_uri() . '/main.css', array(), filemtime( get_template_directory() . '/main.css' ) );
     wp_enqueue_style( 'wp_zuyou-style', get_stylesheet_uri(), array('wp_zuyou-custom-style'), filemtime( get_stylesheet_directory() . '/style.css' ) );
-    
+
     wp_enqueue_script( 'splide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js', array(), '4.1.4', true );
-    wp_enqueue_script( 'wp_zuyou-script', get_template_directory_uri() . '/mock/mock/script.js', array('splide-js'), '1.0', true );
+    wp_enqueue_script( 'wp_zuyou-script', get_template_directory_uri() . '/script.js', array('splide-js'), filemtime( get_template_directory() . '/script.js' ), true );
     // _includes.js は WordPress では不要（get_header()/get_footer() が代替するため除外）
 }
 add_action( 'wp_enqueue_scripts', 'wp_zuyou_scripts' );
@@ -190,74 +188,6 @@ function wp_zuyou_news_query( $query_args = array() ) {
         'items_html' => $items_html,
         'max_pages'  => (int) $max_pages,
     );
-}
-
-/**
- * モックHTMLファイルを読み込み、WP用に変換して出力する共通関数
- * - <head>内の<style>ブロックを抽出して出力（ripple・セクションCSSなど）
- * - <body>内コンテンツを抽出
- * - ヘッダー・フッター・プレースホルダーを除去
- * - 外部scriptタグ・_useComponentsフラグを除去
- * - SVG defs除去（header.phpで定義済み）
- * - 画像パスをWP用に修正
- * - .htmlリンクをWPルートに変換
- * - $div_replacements: クラス名フラグメント => 置換HTML の連想配列（任意）
- */
-function wp_zuyou_render_mock( $filename, $div_replacements = array() ) {
-    $file_path = get_template_directory() . '/mock/' . $filename;
-    if ( ! file_exists( $file_path ) ) {
-        echo '<p>Mock file not found: ' . esc_html( $filename ) . '</p>';
-        return;
-    }
-
-    $html = file_get_contents( $file_path );
-
-    // --- <head> 内の <style> を全て抽出 ---
-    $head_styles = '';
-    if ( preg_match( '/<head[^>]*>(.*?)<\/head>/is', $html, $head_matches ) ) {
-        if ( preg_match_all( '/<style[^>]*>.*?<\/style>/is', $head_matches[1], $style_matches ) ) {
-            $head_styles = implode( "\n", $style_matches[0] );
-        }
-    }
-
-    // --- <body> 内コンテンツ抽出 ---
-    if ( ! preg_match( '/<body[^>]*>(.*?)<\/body>/is', $html, $body_matches ) ) return;
-    $content = $body_matches[1];
-
-    // モックのプレースホルダーdivを除去（2種類の命名に対応）
-    $content = preg_replace( '/<div\s+id="site-header"[^>]*>\s*<\/div>/is', '', $content );
-    $content = preg_replace( '/<div\s+id="site-footer"[^>]*>\s*<\/div>/is', '', $content );
-    $content = preg_replace( '/<div\s+id="header-placeholder"[^>]*>\s*<\/div>/is', '', $content );
-    $content = preg_replace( '/<div\s+id="footer-placeholder"[^>]*>\s*<\/div>/is', '', $content );
-
-    // 外部scriptタグを除去（src属性を持つもの）
-    $content = preg_replace( '/<script\b[^>]+src=[^>]*>\s*<\/script>/is', '', $content );
-
-    // _useComponentsフラグを除去
-    $content = str_replace( '<script>window._useComponents = true;</script>', '', $content );
-
-    // SVG defs ブロックを除去（header.phpで定義済み）
-    $content = preg_replace( '/<svg\s[^>]*width="0"[^>]*height="0"[^>]*>.*?<\/svg>/is', '', $content );
-
-    // 画像パスを修正
-    $mock_uri = get_template_directory_uri() . '/mock/';
-    $content = str_replace( 'src="images/', 'src="' . $mock_uri . 'images/', $content );
-
-    // .htmlリンクをWPルートに変換
-    $home = home_url( '/' );
-    $content = preg_replace( '/href="([^"#][^"]*?)\.html"/', 'href="' . $home . '$1"', $content );
-    $content = str_replace( 'href="' . $home . 'index"', 'href="' . $home . '"', $content );
-
-    // divコンテンツ置換（WP投稿からの動的コンテンツ注入）
-    foreach ( $div_replacements as $class_fragment => $new_inner ) {
-        $content = wp_zuyou_replace_div_inner( $content, $class_fragment, $new_inner );
-    }
-
-    // 出力
-    if ( $head_styles ) {
-        echo $head_styles . "\n";
-    }
-    echo $content;
 }
 
 // ナビゲーションメニューのリンクにクラスを追加するフィルター

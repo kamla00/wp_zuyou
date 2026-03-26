@@ -66,7 +66,6 @@ html { scroll-behavior: smooth; }
     clip-path: url(#hero-wave-clip) !important;
     flex-shrink: 0 !important;
   }
-  .hero-bg::after { display: none !important; }
 }
 
 /* スマホ: ヒーローレイアウト縦並び・写真のアスペクト比固定 */
@@ -102,7 +101,6 @@ html { scroll-behavior: smooth; }
     clip-path: url(#hero-wave-clip) !important;
     flex-shrink: 0 !important;
   }
-  .hero-bg::after { display: none !important; }
 }
 
 /* スマホ: ヒーローボタンを横1列・コンパクトに */
@@ -186,9 +184,11 @@ get_header(); ?>
     </div>
     <div class="hero-bg">
       <div class="hero-bg__inner">
-        <img src="<?php echo $_t; ?>/images/hero.webp" alt="逗葉地域医療センター 玄関1">
-        <img src="<?php echo $_t; ?>/images/hero1.webp" alt="逗葉地域医療センター 玄関2">
-        <img src="<?php echo $_t; ?>/images/hero2.webp" alt="逗葉地域医療センター 玄関3">
+        <img src="<?php echo $_t; ?>/images/hero.webp"  alt="逗葉地域医療センター 玄関1" loading="eager">
+        <img src="<?php echo $_t; ?>/images/hero1.webp" alt="逗葉地域医療センター 玄関2" loading="eager">
+        <img src="<?php echo $_t; ?>/images/hero2.webp" alt="逗葉地域医療センター 玄関3" loading="eager">
+        <img src="<?php echo $_t; ?>/images/hero3.webp" alt="逗葉地域医療センター 玄関4" loading="eager">
+        <img src="<?php echo $_t; ?>/images/hero4.webp" alt="逗葉地域医療センター 玄関5" loading="eager">
       </div>
     </div>
     <a href="#news" class="hero-scroll">
@@ -399,7 +399,7 @@ get_header(); ?>
         </div>
       </header>
       <div class="about-intro fade-in">
-        <div class="about-intro__image"><img src="<?php echo $_t; ?>/images/hero1.webp" alt="施設外観"></div>
+        <div class="about-intro__image"><img src="<?php echo $_t; ?>/images/g1.webp" alt="施設外観"></div>
         <div class="about-intro__content">
           <p class="about-intro__text">逗子市および葉山町が行う地域医療対策の円滑な推進を図るため、一般社団法人逗葉医師会、一般社団法人逗葉歯科医師会、逗葉薬剤師会の協力の下に急患診療事業、特定健診事業、介護予防検診事業および訪問看護事業を行い、もって逗子市民及び葉山町民の健康保持増進と福祉の向上に寄与することを目的としています。</p>
         </div>
@@ -469,11 +469,9 @@ get_header(); ?>
       <div id="facility-splide" class="splide">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl.webp" alt="院内の様子1"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl2.webp" alt="院内の様子2"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/sl3.webp" alt="院内の様子3"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero.webp" alt="院内の様子4"></div></li>
-            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/hero1.webp" alt="院内の様子5"></div></li>
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+            <li class="splide__slide"><div class="facility-slide"><img src="<?php echo $_t; ?>/images/ts<?php echo $i; ?>.webp" alt="院内の様子<?php echo $i; ?>"></div></li>
+            <?php endfor; ?>
           </ul>
         </div>
       </div>
