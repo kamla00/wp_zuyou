@@ -168,7 +168,7 @@ get_header(); ?>
           <span class="screening-service__dot"></span>
           <div class="screening-service__body">
             <h3 class="screening-service__title">各種資料のダウンロード</h3>
-            <p class="screening-service__text">各種制度のご利用、申請の際に使用する用紙や資料はこちらからダウンロードしてご利用ください。</p>
+            <p class="screening-service__text">資料はこちらからダウンロードしてご利用ください。</p>
             <a href="https://drive.google.com/drive/folders/1hNSM9JjMQ-VXMUX-odZhR69emZbxu4UO?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; margin-top: 14px; font-size: 1.6rem; padding: 12px 28px;">ダウンロードはこちらから</a>
           </div>
         </div>
@@ -197,7 +197,7 @@ get_header(); ?>
       <div class="section-header fade-in">
         <div class="section-header__inner">
           <p class="section-label">Calendar</p>
-          <h2 class="section-title">在宅医療イベントカレンダー</h2>
+          <h2 class="section-title">相談室事業イベントカレンダー</h2>
         </div>
       </div>
       <div class="calendar-wrapper fade-in">

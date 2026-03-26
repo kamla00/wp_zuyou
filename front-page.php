@@ -236,7 +236,7 @@ get_header(); ?>
                   <tr>
                     <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">（小児科）</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td>20:00~<br class="medical-hours-sp-break">23:00</td>
@@ -245,7 +245,7 @@ get_header(); ?>
                   <tr>
                     <td rowspan="2" class="td-subject">外科</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                   <tr>
                     <td>20:00~<br class="medical-hours-sp-break">23:00</td>
@@ -254,7 +254,7 @@ get_header(); ?>
                   <tr>
                     <td class="td-subject">歯科</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
-                    <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
                 </tbody>
               </table>
@@ -544,7 +544,7 @@ get_header(); ?>
       <div class="section-header fade-in">
         <div class="section-header__inner">
           <p class="section-label">Calendar</p>
-          <h2 class="section-title">在宅医療イベントカレンダー</h2>
+          <h2 class="section-title">相談室事業イベントカレンダー</h2>
         </div>
       </div>
       <div class="calendar-wrapper fade-in">

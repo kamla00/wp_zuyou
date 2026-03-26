@@ -102,7 +102,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr><td rowspan="2" class="td-subject">内科（小児科）</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
+                      <tr><td rowspan="2" class="td-subject">内科(小児科)</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
                       <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
                       <tr><td rowspan="2" class="td-subject">外科</td><td>10:00~17:00</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td><td>○</td></tr>
                       <tr><td>20:00~23:00</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>

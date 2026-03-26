@@ -113,41 +113,37 @@ get_header(); ?>
             <thead>
               <tr>
                 <th colspan="2">診療時間</th>
-                <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
-                <th>日・祝 /<br class="medical-hours-sp-break">年末年始</th>
+                <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日・祝</th><th>年末年始</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td rowspan="2" class="td-subject">内科（小児科）</td>
-                <td>10:00~17:00</td>
-                <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">（小児科）</td>
+                <td>10:00~<br class="medical-hours-sp-break">17:00</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
               </tr>
               <tr>
-                <td>20:00~23:00</td>
-                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
+                <td>20:00~<br class="medical-hours-sp-break">23:00</td>
+                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
               </tr>
               <tr>
                 <td rowspan="2" class="td-subject">外科</td>
-                <td>10:00~17:00</td>
-                <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                <td>10:00~<br class="medical-hours-sp-break">17:00</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
               </tr>
               <tr>
-                <td>20:00~23:00</td>
-                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
+                <td>20:00~<br class="medical-hours-sp-break">23:00</td>
+                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td>
               </tr>
               <tr>
                 <td class="td-subject">歯科</td>
-                <td>10:00~17:00</td>
-                <td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
+                <td>10:00~<br class="medical-hours-sp-break">17:00</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="medical-hours__note" style="font-size: 1.6rem; margin-top: 20px;">
-          ※診療時間の終了、15分前までにお入り下さいますようお願いします。<br>
-          ※年末年始：12月29日〜1月3日
-        </p>
+        <p class="medical-hours__note">※診療時間の終了、15分前までにお入り下さいますようお願いします。<br>※年末年始：12月29日〜1月3日</p>
       </div>
       <div class="screening-service-list screening-service-list--dot fade-in">
         <div class="screening-service">
@@ -181,7 +177,7 @@ get_header(); ?>
           <span class="emergency-notes__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/></svg>
           </span>
-          <p class="emergency-notes__text">マイナンバーカードまたは健康保険証・医療証を必ずご持参ください。</p>
+          <p class="emergency-notes__text">マイナンバーカードまたは資格確認証・医療証を必ずご持参ください。</p>
         </li>
         <li class="emergency-notes__item">
           <span class="emergency-notes__icon">
