@@ -477,7 +477,8 @@ get_header(); ?>
           <h2 class="section-title">訪問看護</h2>
         </div>
       </header>
-      <p class="nurse-text fade-in">高齢者の方や病気やけが等により在宅療養を必要とされる方に対して、経験豊富な看護師が看護サービスを提供致します。サービスの内容は主治医の指示の下、ご本人やご家族のご希望を考慮した上で看護計画を立ててご提供致します。</p>
+      <p class="nurse-text fade-in">病気や障がいを抱えながら住み慣れた自宅でその人らしく療養生活を送ることができるように看護師が自宅へ訪問し、
+        主治医の指示に基づいて健康管理や医療的ケア、リハビリをおこないます。</p>
       <div class="nurse-details fade-in">
         <h3 class="nurse-sub-title">訪問看護サービスの内容</h3>
         <div class="screening-service-list fade-in">
@@ -635,7 +636,7 @@ get_header(); ?>
           <h2 class="section-title">居宅介護支援について</h2>
         </div>
       </header>
-      <p class="nurse-text fade-in">ケアマネジャーが利用者ご本人やそのご家族のご希望をお伺いし、身体の状態を踏まえた上で、その方に合ったサービスを計画致します。また、サービス提供事業者との連絡・調整を行うことで、サービスの利用をスムーズに進めます。</p>
+      <p class="nurse-text fade-in">介護が必要になった方（利用者）が可能な限り自宅で自立した日常生活を送ることができるよう、ケアマネジャー（介護支援専門員）が、利用者の心身状況や置かれている環境に応じた介護サービスを利用するためのケアプラン（居宅サービス計画書）を作成し、そのプランに基づいて適切なサービスが提供できるよう、事業所や関係機関との連絡・調整を行います。</p>
       <div class="fbd-wrapper fade-in">
         <h3 class="nurse-sub-title">介護サービス計画の作成からサービス開始までの流れ</h3>
         <div class="fbd">
@@ -643,8 +644,11 @@ get_header(); ?>
             <div class="fbd__item--center">
               <div class="fbd__step"><span class="fbd__step-lbl">STEP</span><span class="fbd__step-num">1</span></div>
               <div class="fbd__card">
-                <h4 class="fbd__title">ケアマネジャーへの依頼</h4>
-                <p class="fbd__text">居宅介護支援事業者へご依頼ください。</p>
+                <h4 class="fbd__title">相談支援</h4>
+                <p class="fbd__text">介護保険サービスの利用等について、お気軽にご相談ください。
+ご自宅を訪問して心身の状態や生活環境・課題等を把握します。
+必要に応じて要介護認定等の申請をお手伝いします。
+</p>
               </div>
             </div>
           </div>
@@ -653,8 +657,8 @@ get_header(); ?>
             <div class="fbd__item--center">
               <div class="fbd__step"><span class="fbd__step-lbl">STEP</span><span class="fbd__step-num">2</span></div>
               <div class="fbd__card">
-                <h4 class="fbd__title">現状把握・計画原案作成</h4>
-                <p class="fbd__text">問題点や現状を把握するため、ケアマネジャーがお伺いします。内容を基に、計画の原案を作成します。</p>
+                <h4 class="fbd__title">ケアプラン作成</h4>
+                <p class="fbd__text">ご本人やご家族の意向を尊重しながら、必要な介護保険サービス等を組合わせたケアプラン（居宅サービス計画書）を作成します。</p>
               </div>
             </div>
           </div>
@@ -663,8 +667,8 @@ get_header(); ?>
             <div class="fbd__item--center">
               <div class="fbd__step"><span class="fbd__step-lbl">STEP</span><span class="fbd__step-num">3</span></div>
               <div class="fbd__card">
-                <h4 class="fbd__title">検討・調整</h4>
-                <p class="fbd__text">担当のケアマネジャーを中心に、ご本人・ご家族・サービス事業者の3者で検討・調整を行います。</p>
+                <h4 class="fbd__title">サービス事業所との連絡調整<br/>関係機関との連携</h4>
+                <p class="fbd__text">ケアプランに基づき適切にサービスが開始・提供されるように、サービス事業者及び、医療・行政等の関係機関と連絡調整を行います。</p>
               </div>
             </div>
           </div>
@@ -673,8 +677,8 @@ get_header(); ?>
             <div class="fbd__item--center">
               <div class="fbd__step fbd__step--accent"><span class="fbd__step-lbl">STEP</span><span class="fbd__step-num">4</span></div>
               <div class="fbd__card fbd__card--accent">
-                <h4 class="fbd__title">同意・サービス開始</h4>
-                <p class="fbd__text">サービス計画の内容について同意を頂いた上で、サービスが開始されます。</p>
+                <h4 class="fbd__title">定期訪問</h4>
+                <p class="fbd__text">ご自宅へ定期的に訪問してサービスの利用状況やご本人の状態等を確認させていただき、必要に応じてケアプランの見直しを行います。定期訪問以外にも状態や意向に応じて、随時相談対応や訪問面接をさせていただきます。</p>
               </div>
             </div>
           </div>

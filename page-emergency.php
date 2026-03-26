@@ -47,7 +47,8 @@ add_action( 'wp_head', function () { ?>
 .emergency-notes__item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; background: #fff; border-radius: 16px 4px 16px 4px; padding: 28px 22px; box-shadow: 0 4px 20px rgba(69,149,199,0.15); border-top: 4px solid var(--mh--color--primary-400); }
 .emergency-notes__icon { flex-shrink: 0; width: 36px; height: 36px; color: var(--mh--color--primary-400); }
 .emergency-notes__icon svg { width: 100%; height: 100%; }
-.emergency-notes__text { font-size: 1.5rem; line-height: 1.8; color: var(--mh--color--primary-800); margin: 0; }
+.emergency-notes__text { font-size: 1.6rem; line-height: 1.8; color: var(--mh--color--primary-800); margin: 0; }
+@media (max-width: 767px) { .emergency-notes__text { font-size: 1.5rem; } }
 @media (max-width: 767px) {
   .page-hero {
     height: auto;
