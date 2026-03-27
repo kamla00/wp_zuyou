@@ -255,7 +255,6 @@ body.admin-bar .l-header { top: 32px !important; }
     clip-path: url(#hero-wave-clip) !important;
     flex-shrink: 0 !important;
   }
-  .hero-bg::after { display: none !important; }
   .hero-text br { display: none; }
   /* MOREを非表示（スマホでは写真に重なるため） */
   .hero-scroll { display: none !important; }

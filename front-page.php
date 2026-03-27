@@ -234,7 +234,7 @@ get_header(); ?>
                 </thead>
                 <tbody>
                   <tr>
-                    <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">（小児科）</td>
+                    <td rowspan="2" class="td-subject">内科<br class="medical-hours-sp-break">(小児科)</td>
                     <td>10:00~<br class="medical-hours-sp-break">17:00</td>
                     <td></td><td></td><td></td><td></td><td></td><td></td><td>○</td><td>○</td>
                   </tr>
