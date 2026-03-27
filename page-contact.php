@@ -122,8 +122,8 @@ add_action( 'wp_head', function () { ?>
 .contact-form__btn--back:hover { background: var(--mh--color--primary-100) !important; color: var(--mh--color--primary-800) !important; transform: translateY(-2px); box-shadow: none; }
 .contact-intro { display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
 .contact-balloon { position: relative; background: #fff; border: 2px solid var(--mh--color--primary-200); border-radius: 15px; padding: 20px 25px; max-width: 450px; box-shadow: 0 4px 12px rgba(60,105,156,0.08); }
-.contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #fff; z-index: 2; }
-.contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: transparent transparent transparent #c6e0ec; z-index: 1; }
+.contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff; z-index: 2; }
+.contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #c6e0ec; z-index: 1; }
 .contact-balloon__text { font-size: 1.5rem; line-height: 1.6; color: var(--mh--color--primary-800); font-weight: 500; margin: 0; }
 .contact-intro__img { max-width: 150px; width: 100%; height: auto; }
 @media (max-width: 767px) {
@@ -152,9 +152,15 @@ add_action( 'wp_head', function () { ?>
     padding-top: 12px;
   }
 
-  .contact-intro { flex-direction: column-reverse; }
-  .contact-balloon::after { top: -10px; right: 50%; margin-right: -10px; margin-top: 0; border-width: 0 10px 12px 10px; border-color: transparent transparent var(--mh--color--primary-50) transparent; }
-  .contact-balloon::before { top: -13px; right: 50%; margin-right: -11px; margin-top: 0; border-width: 0 11px 13px 11px; border-color: transparent transparent var(--mh--color--primary-200) transparent; }
+  section.section { padding-top: 20px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .l-container { padding-left: 0 !important; padding-right: 0 !important; }
+  .contact-form { padding: 0; margin-top: 0; }
+  .contact-intro { flex-direction: row-reverse; gap: 14px; flex-wrap: nowrap; align-items: center; margin-bottom: 20px; }
+  .contact-intro__img { max-width: 90px; flex-shrink: 0; }
+  .contact-balloon { padding: 5px 10px; }
+  .contact-balloon::after { top: 50%; right: auto; left: -10px; margin-top: -10px; margin-right: 0; border-width: 10px 10px 10px 0; border-color: rgba(0,0,0,0) #fff rgba(0,0,0,0) rgba(0,0,0,0); }
+  .contact-balloon::before { top: 50%; right: auto; left: -13px; margin-top: -11px; margin-right: 0; border-width: 11px 12px 11px 0; border-color: rgba(0,0,0,0) var(--mh--color--primary-200) rgba(0,0,0,0) rgba(0,0,0,0); }
+  .contact-balloon__text { font-size: 1.3rem; }
 }
 /* エラー */
 .contact-errors { max-width: 800px; margin: 0 auto 30px; padding: 20px 25px; background: #fff0f0; border-left: 4px solid #e63946; border-radius: 6px; }

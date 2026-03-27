@@ -35,6 +35,8 @@ add_action( 'wp_head', function () { ?>
     transition: none !important;
   }
   .news-card:hover { transform: none !important; background: rgba(60,105,156,0.02); }
+  .news-card::after { content: ""; position: absolute; top: 50%; right: 4px; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-top: 2px solid var(--mh--color--primary-300); border-right: 2px solid var(--mh--color--primary-300); flex-shrink: 0; }
+  .news-card__body { padding-right: 20px !important; }
   .news-card__thumbnail {
     flex: 0 0 120px !important;
     width: 120px !important;
@@ -60,10 +62,11 @@ add_action( 'wp_head', function () { ?>
 .news-pagination { margin-top: 60px; display: flex; justify-content: center; gap: 10px; }
 .pagination-item { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--mh--color--primary-200); color: var(--mh--color--primary-500); text-decoration: none; transition: all 0.3s; font-weight: 500; }
 .pagination-item:hover, .pagination-item.is-active { background-color: var(--mh--color--primary-500); color: #fff; border-color: var(--mh--color--primary-500); }
+.pagination-ellipsis { border: none; background: none; color: var(--mh--color--primary-400); cursor: default; letter-spacing: 0.05em; }
 .contact-intro { display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
 .contact-balloon { position: relative; background: #fff; border: 2px solid var(--mh--color--primary-200); border-radius: 15px; padding: 20px 25px; max-width: 450px; box-shadow: 0 4px 12px rgba(60,105,156,0.08); }
-.contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #fff; z-index: 2; }
-.contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: transparent transparent transparent #c6e0ec; z-index: 1; }
+.contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff; z-index: 2; }
+.contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #c6e0ec; z-index: 1; }
 .contact-balloon__text { font-size: 1.5rem; line-height: 1.6; color: var(--mh--color--primary-800); font-weight: 500; margin: 0; }
 .contact-intro__img { max-width: 150px; width: 100%; height: auto; }
 .news-filter-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
@@ -100,11 +103,21 @@ add_action( 'wp_head', function () { ?>
     padding-top: 12px;
   }
 }
-@media (max-width: 767px) { .news-filter-row { flex-direction: column; align-items: flex-start; } .news-search { width: 100%; } .news-search__input { flex: 1; } }
 @media (max-width: 767px) {
-  .contact-intro { flex-direction: column-reverse; }
-  .contact-balloon::after { top: -10px; right: 50%; margin-right: -10px; margin-top: 0; border-width: 0 10px 12px 10px; border-color: transparent transparent #fff transparent; }
-  .contact-balloon::before { top: -13px; right: 50%; margin-right: -11px; margin-top: 0; border-width: 0 11px 13px 11px; border-color: transparent transparent var(--mh--color--primary-200) transparent; }
+  .news-page { padding: 20px 10px; }
+  .news-container { padding: 0; }
+  .news-filter-row { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+  .news-search { width: 100%; }
+  .news-search__input { flex: 1; font-size: 1.2rem; padding: 6px 12px; }
+  .news-search__btn { padding: 6px 10px; }
+  .news-pagination { margin-top: 20px; }
+  .news-filter__btn { font-size: 1.1rem; padding: 4px 12px; }
+  .contact-intro { flex-direction: row-reverse; gap: 14px; flex-wrap: nowrap; align-items: center; margin-bottom: 20px; }
+  .contact-intro__img { max-width: 90px; flex-shrink: 0; }
+  .contact-balloon { padding: 5px 10px; }
+  .contact-balloon::after { top: 50%; right: auto; left: -10px; margin-top: -10px; margin-right: 0; border-width: 10px 10px 10px 0; border-color: rgba(0,0,0,0) #fff rgba(0,0,0,0) rgba(0,0,0,0); }
+  .contact-balloon::before { top: 50%; right: auto; left: -13px; margin-top: -11px; margin-right: 0; border-width: 11px 12px 11px 0; border-color: rgba(0,0,0,0) var(--mh--color--primary-200) rgba(0,0,0,0) rgba(0,0,0,0); }
+  .contact-balloon__text { font-size: 1.3rem; }
 }
 </style>
 <?php }, 20 );
@@ -125,18 +138,30 @@ $max_pages  = (int) $news_query->max_num_pages;
 // カテゴリー一覧（投稿があるもののみ）
 $categories = get_categories( array( 'hide_empty' => true, 'orderby' => 'name', 'order' => 'ASC' ) );
 
-// ページネーションHTML生成（カテゴリーパラメータを維持）
+// ページネーションHTML生成（カテゴリーパラメータを維持・省略あり）
 $pagination_html = '';
 if ( $max_pages > 1 ) {
     $base      = trailingslashit( home_url( '/news' ) );
     $cat_param = $cat_slug ? '?cat=' . urlencode( $cat_slug ) : '';
+    $delta     = 2; // 現在ページの前後に表示するページ数
+    $pages_to_show = array();
     for ( $i = 1; $i <= $max_pages; $i++ ) {
+        if ( $i === 1 || $i === $max_pages || ( $i >= $paged - $delta && $i <= $paged + $delta ) ) {
+            $pages_to_show[] = $i;
+        }
+    }
+    $prev = null;
+    foreach ( $pages_to_show as $i ) {
+        if ( $prev !== null && $i - $prev > 1 ) {
+            $pagination_html .= '<span class="pagination-item pagination-ellipsis">…</span>' . "\n";
+        }
         $url = ( $i === 1 ) ? $base . $cat_param : $base . 'page/' . $i . '/' . $cat_param;
         if ( $i === $paged ) {
             $pagination_html .= '<span class="pagination-item is-active">' . $i . '</span>' . "\n";
         } else {
             $pagination_html .= '<a href="' . esc_url( $url ) . '" class="pagination-item">' . $i . '</a>' . "\n";
         }
+        $prev = $i;
     }
 }
 
