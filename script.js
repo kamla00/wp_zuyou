@@ -49,7 +49,13 @@ function initHeroSlideshow() {
   imgs[current].classList.add('is-active');
 
   setInterval(() => {
-    imgs[current].classList.remove('is-active');
+    const leaving = imgs[current];
+    // フェードアウト中にtransformを現在値で凍結して縮小を防ぐ
+    leaving.style.transform = window.getComputedStyle(leaving).transform;
+    leaving.classList.remove('is-active');
+    // opacity fadeが完了後にインラインスタイルをリセット
+    setTimeout(() => { leaving.style.transform = ''; }, 2000);
+
     current = (current + 1) % imgs.length;
     imgs[current].classList.add('is-active');
   }, 4000);

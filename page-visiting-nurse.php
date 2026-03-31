@@ -88,7 +88,7 @@ add_action( 'wp_head', function () { ?>
 .fbd__notes-illu { flex-shrink: 0; width: 480px; height: 340px; position: relative; display: flex; align-items: center; justify-content: center; z-index: 1; }
 .fbd__notes-illu-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 110%; height: 110%; border-radius: 60% 40% 70% 30% / 30% 70% 30% 70%; opacity: 0.12; filter: blur(50px); z-index: 0; }
 .fbd__notes-img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 30px; filter: drop-shadow(0 12px 24px rgba(60,105,156,0.15)); transition: transform 0.6s cubic-bezier(0.165,0.84,0.44,1); }
-.fbd__notes-body { flex: 1; background: var(--mh--color--primary-400); padding: 40px 50px; border-radius: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin-left: -60px; position: relative; z-index: 2; color: #fff; }
+.fbd__notes-body { flex: 1; background: var(--mh--color--primary-400); padding: 10px 20px; border-radius: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin-left: -60px; position: relative; z-index: 2; color: #fff; }
 .fbd__notes-body p { margin: 0.5em 0; color: #fff; }
 .fbd__notes-illu:hover .fbd__notes-img { transform: translateX(-10px) scale(1.02); }
 
@@ -383,7 +383,7 @@ add_action( 'wp_head', function () { ?>
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--mh--color--primary-500) !important;
   text-decoration: underline !important;
@@ -396,6 +396,9 @@ add_action( 'wp_head', function () { ?>
 }
 .fbd__doc-link:hover {
   opacity: 0.5;
+}
+@media (max-width: 480px) {
+  .fbd__doc-link { font-size: 1.6rem; }
 }
 
 .reception-info {
@@ -638,7 +641,7 @@ get_header(); ?>
       <header class="section-header fade-in">
         <div class="section-header__inner">
           <p class="section-label">Home Care Support</p>
-          <h2 class="section-title">居宅介護支援について</h2>
+          <h2 class="section-title">居宅介護支援</h2>
         </div>
       </header>
       <p class="nurse-text fade-in">介護が必要になった方（利用者）が可能な限り自宅で自立した日常生活を送ることができるよう、ケアマネジャー（介護支援専門員）が、利用者の心身状況や置かれている環境に応じた介護サービスを利用するためのケアプラン（居宅サービス計画書）を作成し、そのプランに基づいて適切なサービスが提供できるよう、事業所や関係機関との連絡・調整を行います。</p>
@@ -694,8 +697,11 @@ get_header(); ?>
             <img src="<?php echo $_t; ?>/images/home-support.webp" alt="" class="fbd__notes-img">
           </div>
           <div class="fbd__notes-body">
-            <p>※サービスの提供が開始された後でも、必要に応じてサービス計画の見直しを致しますので、お気軽にご相談下さい。</p>
+            <p>訪問看護の他、訪問介護（ヘルパー）、訪問リハビリ、デイサービス、福祉用具の利用、介護保険を利用した住宅改修など、幅広い計画作成や利用調整を行います。</p>
           </div>
+        </div>
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="" class="fbd__doc-link">居宅介護支援 運営規程<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
         </div>
       </div>
     </div>
@@ -732,8 +738,8 @@ get_header(); ?>
         <div class="screening-service">
           <span class="screening-service__dot"></span>
           <div class="screening-service__body">
-            <h3 class="screening-service__title">ケアマネージャーの有資格者が兼務します。</h3>
-            <p class="screening-service__text">ケアマネージャーの資格を持つスタッフが、医療・介護の両面からご相談に対応します。</p>
+            <h3 class="screening-service__title">経験のあるケアマネジャーが対応</h3>
+            <p class="screening-service__text">経験のある主任介護支援専門員が複数名在籍しております。</p>
           </div>
         </div>
       </div>
@@ -750,15 +756,11 @@ get_header(); ?>
           </tr>
           <tr>
             <th>連絡先</th>
-            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-871-7693　FAX：046-871-6497<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォーム</a></span></td>
+            <td>電話番号：046-871-7693　FAX：046-871-6497</td>
           </tr>
           <tr>
             <th>事業所番号</th>
             <td>1462590008</td>
-          </tr>          
-          <tr>
-            <th>その他の備考等</th>
-            <td>サンプルテキストＸＸＸＸＸサンプルテキストＸＸＸＸＸサンプルテキストＸＸＸＸＸサンプルテキストＸＸＸＸＸ</td>
           </tr>
         </table>
       </div>

@@ -19,7 +19,6 @@
               <li><a href="<?php echo esc_url( home_url( '/visiting-nurse' ) ); ?>">訪問看護</a></li>
               <li><a href="<?php echo esc_url( home_url( '/home-care' ) ); ?>">在宅医療</a></li>
               <li><a href="<?php echo esc_url( home_url( '/news' ) ); ?>">お知らせ</a></li>
-              <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">お問合せ</a></li>
               <li><a href="https://www.mrso.jp/mrs/zic/Plans/selectPlan" target="_blank" rel="noopener noreferrer">健診WEB予約</a></li>
             </ul>
           </nav>

@@ -243,16 +243,17 @@ body.admin-bar .l-header { top: 32px !important; }
     height: auto !important;
     padding: 0 !important;
     margin: 0 !important;
-    margin-top: -20px !important;
   }
   .hero-bg__inner {
     position: relative !important;
     top: auto !important;
     left: auto !important;
-    width: 70vw !important;
-    height: 70vw !important;
+    width: 52vw !important;
+    height: 52vw !important;
     aspect-ratio: 1 / 1 !important;
-    clip-path: url(#hero-wave-clip) !important;
+    clip-path: none !important;
+    border-radius: 62% 38% 46% 54% / 44% 58% 42% 56% !important;
+    overflow: hidden !important;
     flex-shrink: 0 !important;
   }
   .hero-text br { display: none; }
@@ -894,7 +895,7 @@ body.admin-bar .l-header { top: 32px !important; }
 
   .l-nav-cv {
     max-width: none;
-    margin: 12px auto 0;
+    margin: 30px auto 0;
     padding: 0;
     border-radius: 0;
     background: transparent;

@@ -63,10 +63,10 @@ add_action( 'wp_head', function () { ?>
 .pagination-item { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--mh--color--primary-200); color: var(--mh--color--primary-500); text-decoration: none; transition: all 0.3s; font-weight: 500; }
 .pagination-item:hover, .pagination-item.is-active { background-color: var(--mh--color--primary-500); color: #fff; border-color: var(--mh--color--primary-500); }
 .pagination-ellipsis { border: none; background: none; color: var(--mh--color--primary-400); cursor: default; letter-spacing: 0.05em; }
-.contact-intro { display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; }
+.contact-intro { display: flex; flex-direction: row-reverse; align-items: center; justify-content: center; gap: 30px; margin-bottom: 25px; flex-wrap: wrap; }
 .contact-balloon { position: relative; background: #fff; border: 2px solid var(--mh--color--primary-200); border-radius: 15px; padding: 20px 25px; max-width: 450px; box-shadow: 0 4px 12px rgba(60,105,156,0.08); }
-.contact-balloon::after { content: ""; position: absolute; top: 50%; right: -10px; margin-top: -10px; border-style: solid; border-width: 10px 0 10px 10px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff; z-index: 2; }
-.contact-balloon::before { content: ""; position: absolute; top: 50%; right: -12px; margin-top: -11px; border-style: solid; border-width: 11px 0 11px 11px; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #c6e0ec; z-index: 1; }
+.contact-balloon::after { content: ""; position: absolute; top: 50%; left: -10px; margin-top: -10px; border-style: solid; border-width: 10px 10px 10px 0; border-color: rgba(0,0,0,0) #fff rgba(0,0,0,0) rgba(0,0,0,0); z-index: 2; }
+.contact-balloon::before { content: ""; position: absolute; top: 50%; left: -13px; margin-top: -11px; border-style: solid; border-width: 11px 12px 11px 0; border-color: rgba(0,0,0,0) #c6e0ec rgba(0,0,0,0) rgba(0,0,0,0); z-index: 1; }
 .contact-balloon__text { font-size: 1.5rem; line-height: 1.6; color: var(--mh--color--primary-800); font-weight: 500; margin: 0; }
 .contact-intro__img { max-width: 150px; width: 100%; height: auto; }
 .news-filter-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }

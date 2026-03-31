@@ -60,10 +60,12 @@ html { scroll-behavior: smooth; }
     position: relative !important;
     top: auto !important;
     left: auto !important;
-    width: min(95%, 95vh) !important;
+    width: min(72%, 68vh) !important;
     height: auto !important;
     aspect-ratio: 1 / 1 !important;
-    clip-path: url(#hero-wave-clip) !important;
+    clip-path: none !important;
+    border-radius: 62% 38% 46% 54% / 44% 58% 42% 56% !important;
+    overflow: hidden !important;
     flex-shrink: 0 !important;
   }
 }
@@ -76,6 +78,7 @@ html { scroll-behavior: smooth; }
   .hero-content {
     width: 100% !important;
     box-sizing: border-box !important;
+    padding: calc(var(--mh--header--height) + 20px) 20px 16px !important;
   }
   .hero-inner-content {
     max-width: none !important;
@@ -90,15 +93,21 @@ html { scroll-behavior: smooth; }
     align-items: center !important;
     justify-content: center !important;
     height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 0 24px !important;
+    z-index: 0;
+    isolation: isolate;
   }
   .hero-bg__inner {
     position: relative !important;
     top: auto !important;
     left: auto !important;
-    width: 70vw !important;
-    height: 70vw !important;
+    width: 52vw !important;
+    height: 52vw !important;
     aspect-ratio: 1 / 1 !important;
-    clip-path: url(#hero-wave-clip) !important;
+    clip-path: none !important;
+    border-radius: 62% 38% 46% 54% / 44% 58% 42% 56% !important;
+    overflow: hidden !important;
     flex-shrink: 0 !important;
   }
 }
@@ -189,6 +198,7 @@ get_header(); ?>
         <img src="<?php echo $_t; ?>/images/hero2.webp" alt="逗葉地域医療センター 玄関3" loading="eager">
         <img src="<?php echo $_t; ?>/images/hero3.webp" alt="逗葉地域医療センター 玄関4" loading="eager">
         <img src="<?php echo $_t; ?>/images/hero4.webp" alt="逗葉地域医療センター 玄関5" loading="eager">
+        <img src="<?php echo $_t; ?>/images/hero5.webp" alt="逗葉地域医療センター 玄関6" loading="lazy">
       </div>
     </div>
     <a href="#news" class="hero-scroll">

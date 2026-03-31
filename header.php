@@ -62,7 +62,6 @@
             array( 'slug' => 'visiting-nurse', 'text' => '訪問看護' ),
             array( 'slug' => 'home-care',      'text' => '在宅医療' ),
             array( 'slug' => 'news',           'text' => 'お知らせ' ),
-            array( 'slug' => 'contact',        'text' => 'お問合せ' ),
           );
           foreach ( $nav_pages as $page ) :
             $link_path = $base_path . ( $page['slug'] ? '/' . $page['slug'] : '' );

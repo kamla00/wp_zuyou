@@ -269,7 +269,7 @@ get_header(); ?>
           </tr>
           <tr>
             <th>連絡先</th>
-            <td><span style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">電話番号：046-870-1070<a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contact' ) ) ); ?>" class="reception-contact-link">お問合せフォーム</a></span></td>
+            <td>電話番号：046-870-1070　FAX：046-870-1071</td>
           </tr>
           <tr>
             <th>受付時間</th>
