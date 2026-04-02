@@ -624,8 +624,9 @@ get_header(); ?>
             <p>※かかりつけ医がいらっしゃらない場合は、ご相談下さい。</p>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 24px;">
-          <a href="" class="fbd__doc-link">訪問看護 運営規程<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        <div style="text-align: center; margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <a href="<?php echo $_t; ?>/pdf/重要事項説明書（訪問看護）.pdf" class="fbd__doc-link" target="_blank">重要事項説明書（訪問看護）<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+          <a href="<?php echo $_t; ?>/pdf/重要事項説明書（予防訪問看護）.pdf" class="fbd__doc-link" target="_blank">重要事項説明書（予防訪問看護）<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
         </div>
       </div>
     </div>
@@ -701,7 +702,7 @@ get_header(); ?>
           </div>
         </div>
         <div style="text-align: center; margin-top: 24px;">
-          <a href="" class="fbd__doc-link">居宅介護支援 運営規程<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+          <a href="<?php echo $_t; ?>/pdf/重要事項説明書（居宅介護支援）.pdf" class="fbd__doc-link" target="_blank">重要事項説明書（居宅介護支援）<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
         </div>
       </div>
     </div>

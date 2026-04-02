@@ -381,7 +381,7 @@ get_header(); ?>
           </div>
           <div class="service-card__body">
             <h4 class="service-card__main-lead">逗葉地域在宅医療・介護連携相談室</h4>
-            <p class="service-card__description">逗葉地域在宅医療・介護連携相談室は、逗子市・葉山町の皆様が安心して在宅医療を行いながら生活を送れるよう支援する窓口です。専門の看護師が対応いたします。</p>
+            <p class="service-card__description">逗葉地域在宅医療・介護連携相談室は、逗子市・葉山町の皆様が安心して在宅医療を受けながら生活を送れるよう支援する窓口です。専門の看護師が対応いたします。</p>
             <div class="service-card__tel">
               <span class="service-card__tel-label">TEL</span>
               <a href="tel:0468701070" class="service-card__tel-number">046-870-1070</a>
@@ -411,7 +411,7 @@ get_header(); ?>
       <div class="about-intro fade-in">
         <div class="about-intro__image"><img src="<?php echo $_t; ?>/images/g1.webp" alt="施設外観"></div>
         <div class="about-intro__content">
-          <p class="about-intro__text">逗子市および葉山町が行う地域医療対策の円滑な推進を図るため、一般社団法人逗葉医師会、一般社団法人逗葉歯科医師会、逗葉薬剤師会の協力の下に急患診療事業、特定健診事業、介護予防検診事業および訪問看護事業を行い、もって逗子市民及び葉山町民の健康保持増進と福祉の向上に寄与することを目的としています。</p>
+          <p class="about-intro__text">逗子市および葉山町が行う地域医療対策の円滑な推進を図るため、一般社団法人 逗葉医師会、一般社団法人 逗葉歯科医師会、一般社団法人 逗葉薬剤師会の協力の下に急患診療事業、特定健診事業、介護予防検診事業および訪問看護事業を行い、もって逗子市民及び葉山町民の健康保持増進と福祉の向上に寄与することを目的としています。</p>
         </div>
       </div>
       <div class="about-grid fade-in">
